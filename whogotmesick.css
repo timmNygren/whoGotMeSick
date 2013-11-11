@@ -3,20 +3,27 @@ html {
 }
 
 .top_right{
-	float:right;
+	position:absolute;
+	top:5px;
+	right:5px;
 }
 
 .bottom_right{
-	
+	position:absolute;
+	bottom:5px;
+	right:5px;
 }
 
 .top{
 	margin:0px;
 	padding: 8px;
 	background-color:#909090;
+	max-width:800px;
 }
 
 .main{
+	max-width:800px;
+	position:relative;
 	background-color:#f0f0f0;
 	text-align:left;
 	font-size:12pt;
