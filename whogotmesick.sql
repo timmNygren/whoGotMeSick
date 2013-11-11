@@ -13,6 +13,7 @@ create table reports (
 		user_id int not null,
 		location_id int not null,
 		symptoms blob not null,
+		points int not null,
 		date timestamp not null,
 		note char(256));
 
