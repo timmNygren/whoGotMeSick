@@ -3,7 +3,7 @@ use team17_database;
 drop table if exists users, reports, locations;
 
 create table users (
-		userID int unsigned not null AUTO_INCREMENT primary key,
+		id int unsigned not null AUTO_INCREMENT primary key,
 		username char(30) not null,
 		password char(50) not null,
 		settings blob not null);
@@ -14,8 +14,8 @@ create table reports (
 		location_id int not null,
 		symptoms blob not null,
 		points int not null,
-		date timestamp not null,
-		note char(256));
+		note char(255),
+		date timestamp not null);
 
 create table locations (
 		id int unsigned not null AUTO_INCREMENT primary key,

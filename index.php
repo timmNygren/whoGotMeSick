@@ -1,3 +1,48 @@
+<?php
+	@ $db = new mysqli('localhost', 'team17', 'rhubarb', 'team17_database');
+	if (mysqli_connect_errno()) {
+		echo 'Error: Could not connect to database.  Please try again later.';
+		exit;
+	}
+
+	/* Testing the database */
+	/*************************************************************************************************/	
+	/* Query used to insert the order */
+	$testQuery = "insert into users(username, password, settings) values(?, ?, ?)";
+	$testStmt = $db->prepare($testQuery);
+
+	$userName = "testUsername";
+	$userPassword = "password";
+	$userSettings = 4;
+
+	$testStmt->bind_param("ssi", $userName, $userPassword, $userSettings);
+	$testStmt->execute();
+
+	/*************************************************************************************************/
+	$test2Query = "insert into reports(user_id, location_id, symptoms, points, note, date) values(?, ?, ?, ?, ?, NOW())";
+	$test2Stmt = $db->prepare($test2Query);
+
+	$userId = 1;
+	$userLocationId = 1;
+	$userSymptoms = 4;
+	$userPoints = 10;
+	$userNote = "This is a note";
+
+	$test2Stmt->bind_param("iiiis", $userId, $userLocationId, $userSymptoms, $userPoints, $userNote);
+	$test2Stmt->execute();
+	/*************************************************************************************************/
+	$test3Query = "insert into locations(zip_code) values(?)";
+	$test3Stmt = $db->prepare($test3Query);
+
+	$testZip = 80401;
+
+	$test3Stmt->bind_param("i", $testZip);
+	$test3Stmt->execute();	
+	/*************************************************************************************************/
+	
+	$db->close();
+
+?>
 <html>
 <head>
 	<title>Who Got Me Sick</title>
