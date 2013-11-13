@@ -45,6 +45,36 @@ body {
 	right:5px;
 }
 
+.account {
+	position:absolute;
+	top:5px;
+	right:120px;
+	box-shadow:inset 0px 1px 0px 0px #ffffff;
+	background-color:#ededed;
+	border-top-left-radius:2px;
+	border-top-right-radius:2px;
+	border-bottom-right-radius:2px;
+	border-bottom-left-radius:2px;
+	text-indent:0;
+	border:1px solid #dcdcdc;
+	display:inline-block;
+	color:#909090;
+	font-weight:bold;
+	font-style:normal;
+	height:50px;
+	line-height:50px;
+	width:100px;
+	text-decoration:none;
+	text-align:center;
+	text-shadow:1px 1px 0px #ffffff;
+}.account:hover {
+	background-color:#dfdfdf;
+}.account:active {
+	position:absolute;
+	top:4px;
+	right:120px;
+}
+
 .top{
 	margin:0px;
 	padding: 1px;
