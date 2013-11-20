@@ -1,5 +1,5 @@
 <?php
-	@ $db = new mysqli('localhost', 'team17', 'rhubarb', 'team17_database');
+	$db = new mysqli('localhost', 'team17', 'rhubarb', 'team17_database');
 	if (mysqli_connect_errno()) {
 		echo 'Error: Could not connect to database.  Please try again later.';
 		exit;
@@ -60,7 +60,7 @@
 </head>
 <body>
 	<article class="top">
-		<h1>whogotmesick.com</h1>
+		<span class="title"><h1>whogotmesick.com</h1></span>
 	<div class="login">
 		<a href="#" onclick="return onClick();">Login</a>
 	</div>
