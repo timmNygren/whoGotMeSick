@@ -1,13 +1,3 @@
-<?php
-	$db = new mysqli('localhost', 'team17', 'rhubarb', 'team17_database');
-	if (mysqli_connect_errno()) {
-		echo 'Error: Could not connect to database.  Please try again later.';
-		exit;
-	}
-	
-	$db->close();
-
-?>
 <html>
 <head>
 	<title>Who Got Me Sick</title>
@@ -40,16 +30,15 @@
 			echo 'Error: Could not connect to database.  Please try again later.';
 			exit;
 		}
-		
-		$result = mysqli_query($db,"SELECT * FROM users");
+		$result = mysqli_query($db,"SELECT * FROM users, reports WHERE user_id=users.id;");
 		
 		while($row = mysqli_fetch_array($result))
 		  {
 			echo "<article class='main'>";
 			echo "<h1>". $row['username'] ."</h1>";
-			echo "<p>Test Text</p>";
-			echo "<p class='top_right'>11/10/2012</p>";
-			echo "<p class='bottom_right'>9001 points</p>";
+			echo "<p>". $row['note'] ."</p>";
+			echo "<p class='top_right'>". $row['date'] ."</p>";
+			echo "<p class='bottom_right'>". $row['points'] ."</p>";
 			echo "</article>";
 		  }
 		
