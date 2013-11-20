@@ -1,18 +1,42 @@
-$('.login').click(function(event) {
-	console.log("Toggling");
-	$("#overlay").toggle();
+$('document').ready(function() {
+	$('#login_button').click(function(event) {
+		event.preventDefault();
+		console.log("onLoginClicked");
+		$('\
+			<div id="login_wrapper">\
+			<form method="post" action="login.php?location=index.php">\
+				<table id="login_overlay">\
+					<th><h2>Login</h2></th>\
+					<tr>\
+						<td class="form_label">Username:</td>\
+						<td><input class="form_field" type="text" name="userid"></td>\
+					</tr>\
+					<tr>\
+						<td class="form_label">Password:</td>\
+						<td><input class="form_field" type="password" name="password"></td>\
+					</tr>\
+					<tr>\
+						<td colspan="2" algin="center">\
+							<input class="form_submit" type="submit" value="Login">\
+						</td>\
+					</tr>\
+				</table>\
+			</form>\
+		</div>\
+		').appendTo(document.body);
+	});
 });
 
-// $('html').click(function() {
-// 	console.log("Hiding");
-// 	$('#overlay').hide();
-// });
+$(document.body).delegate("#login_wrapper", "click", function() {
+	console.log("Hiding");
+	$(this).css("display", "none");
+});
 
-$('#overlay').click(function(event) {
-	console.log("Doing nothing");
+$(document.body).delegate("#login_overlay", "click", function(event) {
+	console.log("Click inside");
 	event.stopPropagation();
-});
-// var showing = -1;
+})
+
 // function onLoginClicked() {
 // 	console.log("onLoginClicked");
 // 	var overlay = $('\

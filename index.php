@@ -1,29 +1,11 @@
 <?php
 	session_start();
-
 	$db = new mysqli('localhost', 'team17', 'rhubarb', 'team17_database');
 	if (mysqli_connect_errno()) {
 		echo 'Error: Could not connect to database.  Please try again later.';
 		exit;
 	}
 
-	if (isset($_POST['logout'])) {
-		unset($_SESSION['valid_user']);
-		session_destroy();
-	} elseif (isset($_POST['userid']) && isset($_POST['password'])) {
-		// User has just tried to log in
-		$userid = $_POST['userid'];
-		$password = $_POST['password'];
-
-		$loginquery = "select * from users where username=\"".$userid."\" and password=\"".$password."\"";
-
-		$loginresult = $db->query($loginquery);
-
-		if ($loginresult->num_rows) {
-			// If they are a registered user in the database
-			$_SESSION['valid_user'] = $userid;
-		}
-	}
 ?>
 <html>
 <head>
@@ -31,12 +13,10 @@
 	<link rel="stylesheet" type="text/css" href="whogotmesick.css">
 	<script src="jquery-2.0.3.min.js"></script>
 	<script src="overlay.js"></script>
-	<div id="login_wrapper" style="display: none;"></div>
 </head>
 <body>
 	<article class="top">
 		<span class="title"><h1>whogotmesick.com</h1></span>
-
 	<?php
 		if (isset($_SESSION['valid_user'])) {
 
@@ -46,12 +26,12 @@
 			echo "</div>";
 
 			// Button for the report page link
-			echo "<div class='login'>";
-			echo "<a href='#' onclick='return onClick();'>Report</a>";
+			echo "<div id='login_button'>";
+			echo "<a href='#'>Report</a>";
 			echo "</div>";
 
 			// Button for logout
-			echo "<div class='login'>";
+			echo "<div id='login_button'>";
 			echo "<a href='#'>Logout</a>";
 			echo "</div>";
 		} else {
@@ -61,13 +41,12 @@
 				echo "Could not log you in";
 			}
 
-			echo "<div class='login'>";
-			echo "<a href='#' onclick='return onClick();'>Login</a>";
+			echo "<div id='login_button'>";
+			echo "<a href='#'>Login</a>";
 			echo "</div>";
 		}
 
 	?>
-
 	</article>
 	
 	<?php
@@ -86,31 +65,12 @@
 		  }
 
 		$db->close();
-	?>
-	<form method="post" action="index.php">
-		<table>
-			<tr>
-				<td>UserId:</td>
-				<td><input type="text" name="userid"></td>
-			</tr>
-			<tr>
-				<td>Password:</td>
-				<td><input type="password" name="password"></td>
-			</tr>
-			<tr>
-				<td colspan="2" algin="center">
-					<input type="submit" value="Login2">
-				</td>
-			</tr>
-		</table>
-	</form>
-	<?php
 
 		if (isset($_SESSION['valid_user'])) {
 
 			// Button for testing logout
 			echo "<br /><br />";
-			echo "<form method='post' action='index.php'>";
+			echo "<form method='post' action='index.php?location=index.php'>";
 			echo "<input name='logout' type='submit' value='Logout'>";
 			echo "</form>";
 
