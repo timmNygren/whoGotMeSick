@@ -6,17 +6,18 @@ $('document').ready(function() {
 			<div id="login_wrapper">\
 			<form method="post" action="index.php">\
 				<table id="login_overlay">\
+					<th><h2>Login</h2></th>\
 					<tr>\
-						<td>UserId:</td>\
-						<td><input type="text" name="userid"></td>\
+						<td class="form_label">Username:</td>\
+						<td><input class="form_field" type="text" name="userid"></td>\
 					</tr>\
 					<tr>\
-						<td>Password:</td>\
-						<td><input type="password" name="password"></td>\
+						<td class="form_label">Password:</td>\
+						<td><input class="form_field" type="password" name="password"></td>\
 					</tr>\
 					<tr>\
 						<td colspan="2" algin="center">\
-							<input type="submit" value="Login2">\
+							<input class="form_submit" type="submit" value="Login">\
 						</td>\
 					</tr>\
 				</table>\

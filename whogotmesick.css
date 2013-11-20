@@ -140,3 +140,16 @@ body {
 	margin-left: auto;
 	margin-right: auto;
 }
+.form_label {
+	width: 30%;
+	text-align: right;
+	margin-left: 5px;
+}
+.form_field {
+	width: 70%;
+	margin-right: 5px;
+}
+.form_submit {
+	width: 60%;
+	margin-left: 20%;
+}
