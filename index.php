@@ -36,14 +36,14 @@
 <body>
 	<article class="top">
 		<span class="title"><h1>whogotmesick.com</h1></span>
-		
+
 	<?php
 		if (isset($_SESSION['valid_user'])) {
 
 			// Button for the account page link
 			echo "<div class='account'>";
 			echo "<a href='sickometer.php'>Account</a>";
-			echo "</div>"
+			echo "</div>";
 
 			// Button for the report page link
 			echo "<div class='login'>";
