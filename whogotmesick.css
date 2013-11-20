@@ -162,6 +162,7 @@ body {
 	text-align:center;
 	vertical-align:middle;
 }
+
 #login_overlay {
 	opacity: 1.0;
 	background: rgba(255, 255, 255, 1);
@@ -185,4 +186,15 @@ body {
 .form_submit {
 	width: 60%;
 	margin-left: 20%;
+}
+#register_overlay {
+	opacity: 1.0;
+	background: rgba(255, 255, 255, 1);
+	color: rgba(0, 0, 0, 1);
+	border-radius: 15px;
+	width: 500px;
+	height: 200px;
+	margin-top: 100px;
+	margin-left: auto;
+	margin-right: auto;
 }
