@@ -25,4 +25,21 @@ create table locations (
 		id int unsigned not null AUTO_INCREMENT primary key,
 		zip_code int unsigned not null);
 		
+
+insert into users(username, password, settings)
+	values("tnygren", "drowssap", "100101"),
+			("hlang", "password", "101101"),
+			("abodnar", "superpassword", "000000"),
+			("testUser", "testPassword", "011101");
+
+insert into locations(zip_code)
+	values(80401),(81637),(81631),(91201);
+
+insert into reports(user_id, location_id, symptoms, points, note, date)
+	values(1, 2, "111", 25, NULL, NOW()),
+			(2, 1, "101", 50, "This cold kicked my butt!", NOW()),
+			(3, 4, "000", 35, "Not too bad of a cold", NOW()),
+			(4, 3, "000", 1, "Super bad cold, I had no symptoms", NOW());
+
+
 		
