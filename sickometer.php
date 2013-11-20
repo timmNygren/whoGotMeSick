@@ -13,14 +13,14 @@
 	<article>
 		<form action="change.php" method="post">
 			<h1>Change User Name</h1>
-			New user name: <input type="text" name="firstname"><br>
+			New user name: <input type="text" name="username"><br>
 			<input type="submit">
 		</form>
 		<form action="change.php" method="post">
 			<h1>Change Password</h1>
-			Old password       :<input type="text" name="lastname"><br>
-			New password       :<input type="text" name="lastname"><br>
-			Repeat new password:<input type="text" name="lastname"><br>
+			Old password       :<input type="text" name="oldpassword"><br>
+			New password       :<input type="text" name="newpassword"><br>
+			Confirm Password   :<input type="text" name="confirmpassword"><br>
 			<input type="submit">
 		</form>
 	</article>
