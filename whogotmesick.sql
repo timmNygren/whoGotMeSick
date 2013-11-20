@@ -1,3 +1,4 @@
+create database if not exists team17_database;
 use team17_database;
 
 drop table if exists users, reports, locations;
