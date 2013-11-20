@@ -33,26 +33,28 @@
 		<a href="sickometer.php">Account</a>
 	</div>
 	</article>
-	<article class="main">
-	  <h1>User</h1>
-	  <p>Test Text</p>
-	  <p class="top_right">11/10/2012</p>
-	  <p class="bottom_right">9001 points</p>
-	</article>
-
-	<article class="main">
-	  <h1>User</h1>
-	  <p>Test Text</p>
-	  <p class="top_right">11/10/2012</p>
-	  <p class="bottom_right">9001 points</p>
-	</article>
-
-	<article class="main">
-	  <h1>User</h1>
-	  <p>Test Text</p>
-	  <p class="top_right">11/10/2012</p>
-	  <p class="bottom_right">9001 points</p>
-	</article>
 	
+	<?php
+		$db = new mysqli('localhost', 'team17', 'rhubarb', 'team17_database');
+		if (mysqli_connect_errno()) {
+			echo 'Error: Could not connect to database.  Please try again later.';
+			exit;
+		}
+		
+		$result = mysqli_query($db,"SELECT * FROM users");
+		
+		while($row = mysqli_fetch_array($result))
+		  {
+			echo "<article class='main'>";
+			echo "<h1>". $row['username'] ."</h1>";
+			echo "<p>Test Text</p>";
+			echo "<p class='top_right'>11/10/2012</p>";
+			echo "<p class='bottom_right'>9001 points</p>";
+			echo "</article>";
+		  }
+		
+		
+		$db->close();
+	?>
 </body>
 </html>
