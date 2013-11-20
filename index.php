@@ -1,3 +1,30 @@
+<?php
+	session_start();
+
+	$db = new mysqli('localhost', 'team17', 'rhubarb', 'team17_database');
+	if (mysqli_connect_errno()) {
+		echo 'Error: Could not connect to database.  Please try again later.';
+		exit;
+	}
+
+	if (isset($_POST['logout'])) {
+		unset($_SESSION['valid_user']);
+		session_destroy();
+	} elseif (isset($_POST['userid']) && isset($_POST['password'])) {
+		// User has just tried to log in
+		$userid = $_POST['userid'];
+		$password = $_POST['password'];
+
+		$loginquery = "select * from users where username=\"".$userid."\" and password=\"".$password."\"";
+
+		$loginresult = $db->query($loginquery);
+
+		if ($loginresult->num_rows) {
+			// If they are a registered user in the database
+			$_SESSION['valid_user'] = $userid;
+		}
+	}
+?>
 <html>
 <head>
 	<title>Who Got Me Sick</title><br>
@@ -8,21 +35,40 @@
 <body>
 	<article class="top">
 		<span class="title"><h1>whogotmesick.com</h1></span>
-			
-	<div id="login_button">
-		<a href="#">Login</a>
-	</div>
-	<div class="account">
-		<a href="sickometer.php">Account</a>
-	</div>
+	<?php
+		if (isset($_SESSION['valid_user'])) {
+
+			// Button for the account page link
+			echo "<div class='account'>";
+			echo "<a href='sickometer.php'>Account</a>";
+			echo "</div>";
+
+			// Button for the report page link
+			echo "<div id='login_button'>";
+			echo "<a href='#'>Report</a>";
+			echo "</div>";
+
+			// Button for logout
+			echo "<div id='login_button'>";
+			echo "<a href='#'>Logout</a>";
+			echo "</div>";
+		} else {
+
+			if (isset($userid)) {
+				// Tried to log in and failed
+				echo "Could not log you in";
+			}
+
+			echo "<div id='login_button'>";
+			echo "<a href='#'>Login</a>";
+			echo "</div>";
+		}
+
+	?>
 	</article>
 	
 	<?php
-		$db = new mysqli('localhost', 'team17', 'rhubarb', 'team17_database');
-		if (mysqli_connect_errno()) {
-			echo 'Error: Could not connect to database.  Please try again later.';
-			exit;
-		}
+
 		$result = mysqli_query($db,"SELECT * FROM users, reports WHERE user_id=users.id;");
 		
 		while($row = mysqli_fetch_array($result)){
@@ -37,6 +83,35 @@
 		  }
 
 		$db->close();
+	?>
+	<form method="post" action="index.php">
+		<table>
+			<tr>
+				<td>UserId:</td>
+				<td><input type="text" name="userid"></td>
+			</tr>
+			<tr>
+				<td>Password:</td>
+				<td><input type="password" name="password"></td>
+			</tr>
+			<tr>
+				<td colspan="2" algin="center">
+					<input type="submit" value="Login2">
+				</td>
+			</tr>
+		</table>
+	</form>
+	<?php
+
+		if (isset($_SESSION['valid_user'])) {
+
+			// Button for testing logout
+			echo "<br /><br />";
+			echo "<form method='post' action='index.php'>";
+			echo "<input name='logout' type='submit' value='Logout'>";
+			echo "</form>";
+
+		}
 	?>
 </body>
 </html>

@@ -2,7 +2,7 @@ $('document').ready(function() {
 	$('#login_button').click(function(event) {
 		event.preventDefault();
 		console.log("onLoginClicked");
-		$('<div id="login_wrapper"></div').appendTo(document.body);
+		$('<div id="login_wrapper"><div id="login_overlay"></div></div').appendTo(document.body);
 	});
 });
 
@@ -10,11 +10,6 @@ $(document.body).delegate("#login_wrapper", "click", function() {
 	console.log("Hiding");
 	$(this).css("display", "none");
 });
-
-$('#login_wrapper').click(function(event) {
-	
-});
-
 
 // function onLoginClicked() {
 // 	console.log("onLoginClicked");
