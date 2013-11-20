@@ -35,7 +35,7 @@ body {
 	border: 1px solid #000;
 }
 
-.login {
+#login_button {
 	position:absolute;
 	top:5px;
 	right:5px;
@@ -57,9 +57,42 @@ body {
 	text-decoration:none;
 	text-align:center;
 	text-shadow:1px 1px 0px #ffffff;
-}.login:hover {
+}
+#login_button:hover {
 	background-color:#dfdfdf;
-}.login:active {
+}
+#login_button:active {
+	position:absolute;
+	top:4px;
+	right:5px;
+}
+#logout_button {
+	position:absolute;
+	top:5px;
+	right:5px;
+	box-shadow:inset 0px 1px 0px 0px #ffffff;
+	background-color:#ededed;
+	border-top-left-radius:2px;
+	border-top-right-radius:2px;
+	border-bottom-right-radius:2px;
+	border-bottom-left-radius:2px;
+	text-indent:0;
+	border:1px solid #dcdcdc;
+	display:inline-block;
+	color:#909090;
+	font-weight:bold;
+	font-style:normal;
+	height:50px;
+	line-height:50px;
+	width:100px;
+	text-decoration:none;
+	text-align:center;
+	text-shadow:1px 1px 0px #ffffff;
+}
+#logout_button:hover {
+	background-color:#dfdfdf;
+}
+#logout_button:active {
 	position:absolute;
 	top:4px;
 	right:5px;
@@ -118,10 +151,9 @@ body {
 	padding: 10px 15px;
 	height: 205px;
 }
-.login_wrapper {
+#login_wrapper {
 	z-index: 10000;
-	opacity: 0.5;
-	background-color:#000000;
+	background: rgba(0, 0, 0, 0.4);
 	position:fixed;
 	top: 0px; 
 	left: 0px; 
@@ -130,11 +162,38 @@ body {
 	text-align:center;
 	vertical-align:middle;
 }
-.login_overlay {
-	background-color: #ffffff;
+
+#login_overlay {
+	opacity: 1.0;
+	background: rgba(255, 255, 255, 1);
+	color: rgba(0, 0, 0, 1);
 	border-radius: 15px;
-	width: 800px;
-	height: 400px;
+	width: 500px;
+	height: 200px;
+	margin-top: 100px;
+	margin-left: auto;
+	margin-right: auto;
+}
+.form_label {
+	width: 30%;
+	text-align: right;
+	margin-left: 5px;
+}
+.form_field {
+	width: 70%;
+	margin-right: 5px;
+}
+.form_submit {
+	width: 60%;
+	margin-left: 20%;
+}
+#register_overlay {
+	opacity: 1.0;
+	background: rgba(255, 255, 255, 1);
+	color: rgba(0, 0, 0, 1);
+	border-radius: 15px;
+	width: 500px;
+	height: 200px;
 	margin-top: 100px;
 	margin-left: auto;
 	margin-right: auto;
