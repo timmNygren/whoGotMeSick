@@ -1,29 +1,11 @@
 <?php
 	session_start();
-
 	$db = new mysqli('localhost', 'team17', 'rhubarb', 'team17_database');
 	if (mysqli_connect_errno()) {
 		echo 'Error: Could not connect to database.  Please try again later.';
 		exit;
 	}
 
-	if (isset($_SESSION['logout'])) {
-		unset($_SESSION['valid_user']);
-		session_destroy();
-	} elseif (isset($_POST['userid']) && isset($_POST['password'])) {
-		// User has just tried to log in
-		$userid = $_POST['userid'];
-		$password = $_POST['password'];
-
-		$loginquery = "select * from users where username=\"".$userid."\" and password=\"".$password."\"";
-
-		$loginresult = $db->query($loginquery);
-
-		if ($loginresult->num_rows) {
-			// If they are a registered user in the database
-			$_SESSION['valid_user'] = $userid;
-		}
-	}
 ?>
 <html>
 <head>
@@ -36,7 +18,6 @@
 	<article class="top">
 		<span class="title"><h1>whogotmesick.com</h1></span>
 	<?php
-		// session_destroy();
 		if (isset($_SESSION['valid_user'])) {
 
 			// Button for the account page link
@@ -49,7 +30,8 @@
 			echo "<a href='#'>Report</a>";
 			echo "</div>";
 
-			echo "<div id='logout_button' onclick='return onLogoutClicked();'>";
+			// Button for logout
+			echo "<div id='login_button'>";
 			echo "<a href='#'>Logout</a>";
 			echo "</div>";
 		} else {
@@ -83,6 +65,16 @@
 		  }
 
 		$db->close();
+
+		if (isset($_SESSION['valid_user'])) {
+
+			// Button for testing logout
+			echo "<br /><br />";
+			echo "<form method='post' action='index.php?location=index.php'>";
+			echo "<input name='logout' type='submit' value='Logout'>";
+			echo "</form>";
+
+		}
 	?>
 </body>
 </html>

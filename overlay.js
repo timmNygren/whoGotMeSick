@@ -10,7 +10,7 @@ $('document').ready(function() {
 		console.log("onLoginClicked");
 		$('\
 			<div id="login_wrapper">\
-			<form method="post" action="index.php">\
+			<form method="post" action="login.php?location=index.php">\
 				<table id="login_overlay">\
 					<th><h2>Login</h2></th>\
 					<tr>\
@@ -97,5 +97,3 @@ function onLogoutClicked() {
 		window.location.href = 'logout.php';
 	}
 }
-
-

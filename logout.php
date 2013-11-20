@@ -1,9 +1,25 @@
 <?php
 
-session_start();
+	session_start();
 
-	$_SESSION['logout'] = TRUE;
+	$redirect = NULL;
+	if (!empty($_POST)) {
 
-header("Location: index.php");
+		if (isset($_GET['location'])) {
+			$redirect = $_GET['location'];
+		}
+
+		if (isset($_POST['logout'])) {
+
+			unset($_SESSION['valid_user']);
+			session_destroy();
+
+			header("Location:".$redirect);
+			exit();
+		} elseif (isset($_SESSION['valid_user'])) {
+			header("Location:".$redirect);
+			exit();
+		}
+	}
 
 ?>
