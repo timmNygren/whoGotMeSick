@@ -2,7 +2,6 @@
 <head>
 	<title>Who Got Me Sick</title>
 	<link rel="stylesheet" type="text/css" href="whogotmesick.css">
-	<script src="sickometer.js"></script>
 </head>
 <body id="body">
 	<article class="top">
@@ -14,14 +13,14 @@
 	<article>
 		<form action="change.php" method="post">
 			<h1>Change User Name</h1>
-			New user name: <input type="text" name="firstname"><br>
+			New user name: <input type="text" name="username"><br>
 			<input type="submit">
 		</form>
 		<form action="change.php" method="post">
 			<h1>Change Password</h1>
-			Old password       :<input type="text" name="lastname"><br>
-			New password       :<input type="text" name="lastname"><br>
-			Repeat new password:<input type="text" name="lastname"><br>
+			Old password       :<input type="text" name="oldpassword"><br>
+			New password       :<input type="text" name="newpassword"><br>
+			Confirm Password   :<input type="text" name="confirmpassword"><br>
 			<input type="submit">
 		</form>
 	</article>
@@ -36,6 +35,8 @@
 	<div id="candiv">
 		<h1>Sickometer</h1>
 		<canvas id="canvas" width="400" height="400" style="border:1px solid #000000;"></canvas>
+		<!-- Loaded after canvas so the element is populated -->
+		<script src="sickometer.js"></script>
 	</div>
 	<div>
 		<h1>Sickometer metrics</h1>
