@@ -57,9 +57,42 @@ body {
 	text-decoration:none;
 	text-align:center;
 	text-shadow:1px 1px 0px #ffffff;
-}#login:hover {
+}
+#login_button:hover {
 	background-color:#dfdfdf;
-}#login:active {
+}
+#login_button:active {
+	position:absolute;
+	top:4px;
+	right:5px;
+}
+#logout_button {
+	position:absolute;
+	top:5px;
+	right:5px;
+	box-shadow:inset 0px 1px 0px 0px #ffffff;
+	background-color:#ededed;
+	border-top-left-radius:2px;
+	border-top-right-radius:2px;
+	border-bottom-right-radius:2px;
+	border-bottom-left-radius:2px;
+	text-indent:0;
+	border:1px solid #dcdcdc;
+	display:inline-block;
+	color:#909090;
+	font-weight:bold;
+	font-style:normal;
+	height:50px;
+	line-height:50px;
+	width:100px;
+	text-decoration:none;
+	text-align:center;
+	text-shadow:1px 1px 0px #ffffff;
+}
+#logout_button:hover {
+	background-color:#dfdfdf;
+}
+#logout_button:active {
 	position:absolute;
 	top:4px;
 	right:5px;

@@ -1,5 +1,10 @@
+var overlay_created = 0;
 $('document').ready(function() {
 	$('#login_button').click(function(event) {
+		if (overlay_created == 1) {
+			$('#login_wrapper').css("display", "");
+			return;
+		}
 		event.preventDefault();
 		console.log("onLoginClicked");
 		$('\
@@ -24,6 +29,7 @@ $('document').ready(function() {
 			</form>\
 		</div>\
 		').appendTo(document.body);
+		overlay_created = 1;
 	});
 });
 
@@ -35,35 +41,19 @@ $(document.body).delegate("#login_wrapper", "click", function() {
 $(document.body).delegate("#login_overlay", "click", function(event) {
 	console.log("Click inside");
 	event.stopPropagation();
-})
+});
 
-// function onLoginClicked() {
-// 	console.log("onLoginClicked");
-// 	var overlay = $('\
-// 		<div id="overlay">\
-// 			<table class="login_overlay">\
-// 				<tr>\
-// 					<td>\
-// 					</td>\
-// 				</tr>\
-// 			</table>\
-// 		</div>\
-// 		');
-// 	overlay.appendTo(document.body);
-// 	showing = 1;
-// 	return false;
-// }
+$(document.body).delegate("#logout_button", "click", function(event) {
+	event.preventDefault();
+	console.log("Logout");
 
-// $('html').click(function() {
-// 	if (showing != 0) {
-// 		console.log("Removing overlay");
-// 		$('#overlay').remove();
-// 		showing = 0;
-// 	}
-// });
+});
 
-// $('#overlay').click(function(event) {
-// 	console.log("Got a click on the overlay");
-// 	event.stopPropagation();
-// });
+function onLogoutClicked() {
+	var ret_val = confirm("Do you really want to logout?");
+	if (ret_val) {
+		window.location.href = 'logout.php';
+	}
+}
+
 

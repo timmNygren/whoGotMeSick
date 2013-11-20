@@ -7,7 +7,7 @@
 		exit;
 	}
 
-	if (isset($_POST['logout'])) {
+	if (isset($_SESSION['logout'])) {
 		unset($_SESSION['valid_user']);
 		session_destroy();
 	} elseif (isset($_POST['userid']) && isset($_POST['password'])) {
@@ -36,6 +36,7 @@
 	<article class="top">
 		<span class="title"><h1>whogotmesick.com</h1></span>
 	<?php
+		// session_destroy();
 		if (isset($_SESSION['valid_user'])) {
 
 			// Button for the account page link
@@ -48,8 +49,7 @@
 			echo "<a href='#'>Report</a>";
 			echo "</div>";
 
-			// Button for logout
-			echo "<div id='login_button'>";
+			echo "<div id='logout_button' onclick='return onLogoutClicked();'>";
 			echo "<a href='#'>Logout</a>";
 			echo "</div>";
 		} else {
@@ -83,16 +83,6 @@
 		  }
 
 		$db->close();
-
-		if (isset($_SESSION['valid_user'])) {
-
-			// Button for testing logout
-			echo "<br /><br />";
-			echo "<form method='post' action='index.php'>";
-			echo "<input name='logout' type='submit' value='Logout'>";
-			echo "</form>";
-
-		}
 	?>
 </body>
 </html>
