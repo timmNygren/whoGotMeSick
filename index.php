@@ -15,7 +15,7 @@
 		$userid = $_POST['userid'];
 		$password = $_POST['password'];
 
-		$loginquery = "select * from users where username=\"".$userid."\" and passwords=\"".$passwords."\"";
+		$loginquery = "select * from users where username=\"".$userid."\" and password=\"".$password."\"";
 
 		$loginresult = $db->query($loginquery);
 
