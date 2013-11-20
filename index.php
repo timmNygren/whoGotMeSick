@@ -4,13 +4,12 @@
 	<link rel="stylesheet" type="text/css" href="whogotmesick.css">
 	<script src="jquery-2.0.3.min.js"></script>
 	<script src="overlay.js"></script>
-	<div id="login_wrapper" style="display: none;"></div>
 </head>
 <body>
 	<article class="top">
 		<span class="title"><h1>whogotmesick.com</h1></span>
 			
-	<div class="login">
+	<div id="login_button">
 		<a href="#">Login</a>
 	</div>
 	<div class="account">

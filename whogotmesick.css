@@ -35,7 +35,7 @@ body {
 	border: 1px solid #000;
 }
 
-.login {
+#login_button {
 	position:absolute;
 	top:5px;
 	right:5px;
@@ -57,9 +57,9 @@ body {
 	text-decoration:none;
 	text-align:center;
 	text-shadow:1px 1px 0px #ffffff;
-}.login:hover {
+}#login:hover {
 	background-color:#dfdfdf;
-}.login:active {
+}#login:active {
 	position:absolute;
 	top:4px;
 	right:5px;
@@ -118,7 +118,7 @@ body {
 	padding: 10px 15px;
 	height: 205px;
 }
-.login_wrapper {
+#login_wrapper {
 	z-index: 10000;
 	opacity: 0.5;
 	background-color:#000000;
@@ -130,7 +130,7 @@ body {
 	text-align:center;
 	vertical-align:middle;
 }
-.login_overlay {
+#login_overlay {
 	background-color: #ffffff;
 	border-radius: 15px;
 	width: 800px;

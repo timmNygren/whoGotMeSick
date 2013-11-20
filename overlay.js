@@ -1,18 +1,21 @@
-$('.login').click(function(event) {
-	console.log("Toggling");
-	$("#overlay").toggle();
+$('document').ready(function() {
+	$('#login_button').click(function(event) {
+		event.preventDefault();
+		console.log("onLoginClicked");
+		$('<div id="login_wrapper"></div').appendTo(document.body);
+	});
 });
 
-// $('html').click(function() {
-// 	console.log("Hiding");
-// 	$('#overlay').hide();
-// });
-
-$('#overlay').click(function(event) {
-	console.log("Doing nothing");
-	event.stopPropagation();
+$(document.body).delegate("#login_wrapper", "click", function() {
+	console.log("Hiding");
+	$(this).css("display", "none");
 });
-// var showing = -1;
+
+$('#login_wrapper').click(function(event) {
+	
+});
+
+
 // function onLoginClicked() {
 // 	console.log("onLoginClicked");
 // 	var overlay = $('\
