@@ -1,6 +1,6 @@
 <html>
 <head>
-	<title>Who Got Me Sick</title>
+	<title>Who Got Me Sick</title><br>
 	<link rel="stylesheet" type="text/css" href="whogotmesick.css">
 	<script src="overlay.js"></script>
 	<style>
@@ -16,6 +16,7 @@
 <body>
 	<article class="top">
 		<span class="title"><h1>whogotmesick.com</h1></span>
+			
 	<div class="login">
 		<a href="#" onclick="return onClick();">Login</a>
 	</div>
@@ -32,17 +33,17 @@
 		}
 		$result = mysqli_query($db,"SELECT * FROM users, reports WHERE user_id=users.id;");
 		
-		while($row = mysqli_fetch_array($result))
-		  {
+		while($row = mysqli_fetch_array($result)){
+			$timestamp = strtotime($row['date']);
 			echo "<article class='main'>";
-			echo "<h1>". $row['username'] ."</h1>";
-			echo "<p>". $row['note'] ."</p>";
-			echo "<p class='top_right'>". $row['date'] ."</p>";
-			echo "<p class='bottom_right'>". $row['points'] ."</p>";
+			echo "<h1><b>User</b>: ". $row['username'] ."</h1>";
+			echo "<div class='symptoms'><b>Symptoms</b>: ". $row['symptoms'] ."</div>";
+			echo "<div class='notes'><b>Notes</b>: ". $row['note'] ."</div>";
+			echo "<p class='top_right'><b>Date</b>: ". date("jS F o", $timestamp) ."</p>";
+			echo "<p class='bottom_right'><b>Points</b>: ". $row['points'] ."</p>";
 			echo "</article>";
 		  }
-		
-		
+
 		$db->close();
 	?>
 </body>
