@@ -2,22 +2,15 @@
 <head>
 	<title>Who Got Me Sick</title>
 	<link rel="stylesheet" type="text/css" href="whogotmesick.css">
+	<script src="jquery-2.0.3.min.js"></script>
 	<script src="overlay.js"></script>
-	<style>
-	#displaybox {
-		z-index: 10000;
-		opacity: 0.5;
-		background-color:#000000;
-		position:fixed; top:0px; left:0px; width:100%; height:100%; text-align:center; vertical-align:middle;
-	}
-	</style>
-	<div id="displaybox" style="display: none;"></div>
+	<div id="login_wrapper" style="display: none;"></div>
 </head>
 <body>
 	<article class="top">
 		<span class="title"><h1>whogotmesick.com</h1></span>
 	<div class="login">
-		<a href="#" onclick="return onClick();">Login</a>
+		<a href="#">Login</a>
 	</div>
 	<div class="account">
 		<a href="sickometer.php">Account</a>
