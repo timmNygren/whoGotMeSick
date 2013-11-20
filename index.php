@@ -83,25 +83,6 @@
 		  }
 
 		$db->close();
-	?>
-	<form method="post" action="index.php">
-		<table>
-			<tr>
-				<td>UserId:</td>
-				<td><input type="text" name="userid"></td>
-			</tr>
-			<tr>
-				<td>Password:</td>
-				<td><input type="password" name="password"></td>
-			</tr>
-			<tr>
-				<td colspan="2" algin="center">
-					<input type="submit" value="Login2">
-				</td>
-			</tr>
-		</table>
-	</form>
-	<?php
 
 		if (isset($_SESSION['valid_user'])) {
 
