@@ -2,7 +2,7 @@ $('document').ready(function() {
 	$('#login_button').click(function(event) {
 		event.preventDefault();
 		console.log("onLoginClicked");
-		$('<div id="login_wrapper"><div id="login_overlay"></div></div').appendTo(document.body);
+		$('<div id="login_wrapper"><table id="login_overlay"><tr><td></td></tr></table></div').appendTo(document.body);
 	});
 });
 
