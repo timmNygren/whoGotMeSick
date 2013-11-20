@@ -2,7 +2,6 @@
 <head>
 	<title>Who Got Me Sick</title>
 	<link rel="stylesheet" type="text/css" href="whogotmesick.css">
-	<script src="sickometer.js"></script>
 </head>
 <body id="body">
 	<article class="top">
@@ -36,6 +35,8 @@
 	<div id="candiv">
 		<h1>Sickometer</h1>
 		<canvas id="canvas" width="400" height="400" style="border:1px solid #000000;"></canvas>
+		<!-- Loaded after canvas so the element is populated -->
+		<script src="sickometer.js"></script>
 	</div>
 	<div>
 		<h1>Sickometer metrics</h1>
