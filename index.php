@@ -26,7 +26,7 @@
 			echo "</div>";
 
 			// Button for the report page link
-			echo "<div id='login_button'>";
+			echo "<div id='report_button'>";
 			echo "<a href='#'>Report</a>";
 			echo "</div>";
 

@@ -41,7 +41,8 @@ span#title {
 
 button_base,
 #login_button,
-#account_button {
+#account_button,
+#report_button {
 	position:absolute;
 	box-shadow:inset 0px 1px 0px 0px #ffffff;
 	background-color:#ededed;
@@ -90,6 +91,20 @@ button_base,
 	position:absolute;
 	top: 13%;
 	right:120px;
+}
+
+#report_button {
+	right: 235px;
+}
+
+#report_button:hover {
+	background-color: #dfdfdf;
+}
+
+#report_button:active {
+	position: absolute;
+	top: 13%;
+	right: 235px;
 }
 
 .top {
