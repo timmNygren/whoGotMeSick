@@ -8,6 +8,10 @@ body {
 	
 }
 
+span#title {
+	color: #000000;
+}
+
 .top_right{
 	position:absolute;
 	top:5px;
@@ -35,110 +39,74 @@ body {
 	border: 1px solid #000;
 }
 
+button_base,
+#login_button,
+#account_button {
+	position:absolute;
+	box-shadow:inset 0px 1px 0px 0px #ffffff;
+	background-color:#ededed;
+	border-top-left-radius:2px;
+	border-top-right-radius:2px;
+	border-bottom-right-radius:2px;
+	border-bottom-left-radius:2px;
+	text-indent:0;
+	border:1px solid #dcdcdc;
+	display:inline-block;
+	color:#909090;
+	font-weight:bold;
+	font-style:normal;
+	height:50px;
+	line-height:50px;
+	width:100px;
+	text-decoration:none;
+	text-align:center;
+	text-shadow:1px 1px 0px #ffffff;	
+	border-radius: 15px; 
+	top:15%;
+}
+
 #login_button {
-	position:absolute;
-	top:5px;
-	right:5px;
-	box-shadow:inset 0px 1px 0px 0px #ffffff;
-	background-color:#ededed;
-	border-top-left-radius:2px;
-	border-top-right-radius:2px;
-	border-bottom-right-radius:2px;
-	border-bottom-left-radius:2px;
-	text-indent:0;
-	border:1px solid #dcdcdc;
-	display:inline-block;
-	color:#909090;
-	font-weight:bold;
-	font-style:normal;
-	height:50px;
-	line-height:50px;
-	width:100px;
-	text-decoration:none;
-	text-align:center;
-	text-shadow:1px 1px 0px #ffffff;
-}
-#login_button:hover {
-	background-color:#dfdfdf;
-}
-#login_button:active {
-	position:absolute;
-	top:4px;
-	right:5px;
-}
-#logout_button {
-	position:absolute;
-	top:5px;
-	right:5px;
-	box-shadow:inset 0px 1px 0px 0px #ffffff;
-	background-color:#ededed;
-	border-top-left-radius:2px;
-	border-top-right-radius:2px;
-	border-bottom-right-radius:2px;
-	border-bottom-left-radius:2px;
-	text-indent:0;
-	border:1px solid #dcdcdc;
-	display:inline-block;
-	color:#909090;
-	font-weight:bold;
-	font-style:normal;
-	height:50px;
-	line-height:50px;
-	width:100px;
-	text-decoration:none;
-	text-align:center;
-	text-shadow:1px 1px 0px #ffffff;
-}
-#logout_button:hover {
-	background-color:#dfdfdf;
-}
-#logout_button:active {
-	position:absolute;
-	top:4px;
 	right:5px;
 }
 
-.account {
-	position:absolute;
-	top:5px;
-	right:120px;
-	box-shadow:inset 0px 1px 0px 0px #ffffff;
-	background-color:#ededed;
-	border-top-left-radius:2px;
-	border-top-right-radius:2px;
-	border-bottom-right-radius:2px;
-	border-bottom-left-radius:2px;
-	text-indent:0;
-	border:1px solid #dcdcdc;
-	display:inline-block;
-	color:#909090;
-	font-weight:bold;
-	font-style:normal;
-	height:50px;
-	line-height:50px;
-	width:100px;
-	text-decoration:none;
-	text-align:center;
-	text-shadow:1px 1px 0px #ffffff;
-}.account:hover {
+#login_button:hover {
 	background-color:#dfdfdf;
-}.account:active {
+}
+
+#login_button:active {
 	position:absolute;
-	top:4px;
+	top:13%;
+	right:5px;
+}
+
+#account_button {
+	right:120px;
+}
+
+#account_button:hover {
+	background-color:#dfdfdf;
+}
+#account_button:active {
+	position:absolute;
+	top: 13%;
 	right:120px;
 }
 
 .top {
 	background-color:#909090;
 	width: 100%;
+	margin-right: auto;
+	margin-left: auto;
 	position:relative;
-	padding: 10px 15px;
+	padding: 5px 35px 1px 0px;
+	border-radius: 15px;
 }
 
 .main {
-	width: 100%;
-	margin-top: 4px;
+	width: 95%;
 	position:relative;
+	margin-left: 2.5%;
+	margin-bottom: 4px;
 	background-color:#dfdfdf;
 	text-align:left;
 	font-size:12pt;
@@ -146,8 +114,9 @@ body {
 	border-width:5px;
 	border-color:black;
 	border-width:2px;
-	margin: 4px;
+	margin-right: auto;
 	border:2px solid #000;
+	/*border-radius: 15px;*/
 	padding: 10px 15px;
 	height: 205px;
 }

@@ -16,12 +16,12 @@
 </head>
 <body>
 	<article class="top">
-		<span class="title"><h1>whogotmesick.com</h1></span>
+		<span id="title"><h1>whogotmesick.com</h1></span>
 	<?php
 		if (isset($_SESSION['valid_user'])) {
 
 			// Button for the account page link
-			echo "<div class='account'>";
+			echo "<div id='account_button'>";
 			echo "<a href='sickometer.php'>Account</a>";
 			echo "</div>";
 
@@ -65,16 +65,6 @@
 		  }
 
 		$db->close();
-
-		if (isset($_SESSION['valid_user'])) {
-
-			// Button for testing logout
-			echo "<br /><br />";
-			echo "<form method='post' action='index.php?location=index.php'>";
-			echo "<input name='logout' type='submit' value='Logout'>";
-			echo "</form>";
-
-		}
 	?>
 </body>
 </html>
