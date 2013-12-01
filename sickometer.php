@@ -1,3 +1,6 @@
+<?php
+	session_start();
+?>	
 <html>
 <head>
 	<title>Who Got Me Sick</title>
@@ -10,6 +13,9 @@
 			<a href="index.php">Home</a>
 		</div>
 	</article>
+	<?php
+		echo 'Welcome '.$_SESSION['valid_user']."!";
+	?>
 	<article>
 		<form action="change.php" method="post">
 			<h1>Change User Name</h1>

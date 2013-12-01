@@ -3,7 +3,7 @@
 	$db = new mysqli('localhost', 'team17', 'rhubarb', 'team17_database');
 	if (mysqli_connect_errno()) {
 		echo 'Error: Could not connect to database.  Please try again later.';
-		exit;
+		exit();
 	}
 
 ?>
