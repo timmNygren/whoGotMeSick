@@ -1,3 +1,6 @@
+<?php
+	session_start();
+?>	
 <html>
 <head>
 	<title>Who Got Me Sick</title>
@@ -13,9 +16,22 @@
 			<a href="index.php">Home</a>
 		</div>
 	</article>
+	<?php
+		echo 'Welcome '.$_SESSION['valid_user']."!";
+	?>
 	<div class="content">
 		<form action="change.php" method="post">
 			<span class='section_header'><h1>Change User Name</h1></span>
+			<?php
+				if (isset($_SESSION['name_change'])) {
+					if ($_SESSION['name_change'] == 0) {
+						echo "Field is empty<br>";
+					} else {
+						echo "Username has been changed successfully<br>";		
+					}
+					unset($_SESSION['name_change']);
+				}
+			?>
 			New user name: <input type="text" name="username"><br>
 			<input type="submit">
 		</form>
@@ -23,6 +39,18 @@
 	<div class="content">
 		<form action="change.php" method="post">
 			<span class='section_header'><h1>Change Password</h1></span>
+			<?php
+				if (isset($_SESSION['password_change'])) {
+					if ($_SESSION['password_change'] == 0) {
+						echo "One or more fields missing <br>";
+					} elseif ($_SESSION['password_change'] == 1) {
+						echo "Passwords DO NOT match<br>";
+					} elseif ($_SESSION['password_change'] == 2) {
+						echo "Password Successfully changed<br>";
+					}
+					unset($_SESSION['password_change']);
+				}
+			?>
 			Old password       :<input type="text" name="oldpassword"><br>
 			New password       :<input type="text" name="newpassword"><br>
 			Confirm Password   :<input type="text" name="confirmpassword"><br>
