@@ -40,7 +40,8 @@ span#title {
 }
 
 button_base,
-#loginout_button,
+#login_button,
+#logout_button,
 #account_button,
 #report_button {
 	position:absolute;
@@ -66,15 +67,18 @@ button_base,
 	top:15%;
 }
 
-#loginout_button {
+#login_button,
+#logout_button {
 	right:5px;
 }
 
-#loginout_button:hover {
+#login_button:hover,
+#logout_button:hover {
 	background-color:#dfdfdf;
 }
 
-#loginout_button:active {
+#login_button:active,
+#logout_button:active {
 	position:absolute;
 	top:13%;
 	right:5px;

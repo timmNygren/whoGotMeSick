@@ -2,12 +2,7 @@
 
 	session_start();
 
-	$redirect = NULL;
 	if (!empty($_POST)) {
-
-		if (isset($_POST['location'])) {
-			$redirect = $_POST['location'];
-		}
 
 		if (isset($_POST['userid']) && isset($_POST['password']) && !isset($_SESSION['valid_user'])) {
 
@@ -31,10 +26,10 @@
 			}
 
 			$db->close();
-			header("Location:".$redirect);
+			header("Location:index.php");
 			exit();
 		} elseif (isset($_SESSION['valid_user'])) {
-			header("Location:".$redirect);
+			header("Location:index.php");
 			exit();
 		}
 	}

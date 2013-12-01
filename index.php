@@ -31,8 +31,8 @@
 			echo "</div>";
 
 			// Button for logout
-			echo "<div id='loginout_button'>";
-			echo "<a href='logout.php'>Logout</a>";
+			echo "<div id='logout_button'>";
+			echo "<a href='#' onClick='onLogoutClicked();'>Logout</a>";
 			echo "</div>";
 		} else {
 
@@ -41,8 +41,8 @@
 				echo "Could not log you in";
 			}
 
-			echo "<div id='loginout_button'>";
-			echo "<a href='login.php?location=\"index.php\"'>Login</a>";
+			echo "<div id='login_button'>";
+			echo "<a href='#'>Login</a>";
 			echo "</div>";
 		}
 
