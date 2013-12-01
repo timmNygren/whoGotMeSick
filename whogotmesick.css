@@ -44,15 +44,9 @@ button_base,
 #logout_button,
 #account_button,
 #report_button {
+	background: url('Art/ButtonBackground.png');
 	position:absolute;
-	box-shadow:inset 0px 1px 0px 0px #ffffff;
-	background-color:#ededed;
-	border-top-left-radius:2px;
-	border-top-right-radius:2px;
-	border-bottom-right-radius:2px;
-	border-bottom-left-radius:2px;
 	text-indent:0;
-	border:1px solid #dcdcdc;
 	display:inline-block;
 	color:#909090;
 	font-weight:bold;
