@@ -1,4 +1,3 @@
-drop database if exists team17_database;
 create database team17_database;
 use team17_database;
 
