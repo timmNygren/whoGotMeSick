@@ -20,7 +20,7 @@
 		exit();
 	}
 	
-	mysqli_query($db,"INSERT INTO reports (user_id, location_id, symptoms, points, note, date) VALUES (".$_SESSION['user_id'].", 2, ".$encoded.", 25, ".$_POST['comment'].", NOW())");
+	mysqli_query($db,"INSERT INTO reports (user_id, location_id, symptoms, points, note, date) VALUES (".$_SESSION['user_id'].", ".$_POST['zip'].", \"".$encoded."\", 25, \"".$_POST['comment']."\", NOW());");
 	mysqli_close($db);
 	
 	echo "<p>Report sent!</p>";
