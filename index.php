@@ -49,7 +49,7 @@
 				echo "Could not log you in";
 			}
 
-			echo "<div id='logout_button' onClick='onLogoutClicked();'>";
+			echo "<div id='login_button'>";
 			echo "<img src='Images/LoginButton.png'></img>";
 			echo "</div>";
 		}
