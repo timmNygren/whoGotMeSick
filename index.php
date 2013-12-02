@@ -10,7 +10,7 @@
 	}
 
 	if (isset($_GET)) {
-		if (empty($_GET['searchTerm']) && $_GET['searchTerm'] != 0) {
+		if (empty($_GET['searchTerm'])) {
 			$search_query = "select * from users, reports where user_id=users.id;";	
 		} else {
 			$search_query = "select * from users, reports where user_id=users.id and location_id=\"".$_GET['searchTerm']."\";";
@@ -76,7 +76,7 @@
 	<?php
 
 		$result = $db->query($search_query);
-		echo $search_query;
+		// echo $search_query;
 		if ($result->num_rows == 0) {
 			echo "<h1>There are no sicknesses in this area</h1><br>";
 		} else {
