@@ -114,6 +114,18 @@ $(document.body).delegate("#register_button", "click", function(event) {
 	showRegisterOverlay();
 });
 
+function onHomeClicked() {
+	window.location.href = "index.php";
+}
+
+function onAccountClicked() {
+	window.location.href = "sickometer.php";
+}
+
+function onReportClicked() {
+	window.location.href = "report.php";
+}
+
 function onLogoutClicked() {
 	var ret_val = confirm("Do you really want to logout?");
 	if (ret_val) {
