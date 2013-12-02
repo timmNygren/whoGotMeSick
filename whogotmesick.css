@@ -103,6 +103,7 @@ span#title {
 	right: 120px;
 }
 
+#overview_button:hover,
 #login_button:hover,
 #logout_button:hover,
 #account_button:hover,
@@ -208,5 +209,5 @@ span.section_header {
 }
 
 textarea {
-	display: inline;
+	float: none;
 }
