@@ -1,6 +1,9 @@
 <?php
 	session_start();
-	$db = new mysqli('localhost', 'team17', 'rhubarb', 'team17_database');
+
+	include('dbconnect.php');
+
+	$db = @new mysqli($db_server, $db_user_name, $db_password, $db_name);
 	if (mysqli_connect_errno()) {
 		echo 'Error: Could not connect to database.  Please try again later.';
 		exit();
