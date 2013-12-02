@@ -32,13 +32,20 @@
 			exit();
 		}
 
-		$update_user_query = "update users set username=\"".$_POST['username']."\" where username=\"".$_SESSION['valid_user']."\";";
-		$_SESSION['valid_user'] = $_POST['username'];
-		$result = $db->query($update_user_query);
+		$username = $_POST['username'];
+		$previousUsername = $_SESSION['valid_user'];
+		
+		$update_user_query = "update users set username=? where username=?;";
+		$stmt = $db->prepare($update_user_query);
+		$stmt->bind_param("ss", $username, $previousUsername);
+		$stmt->execute();
+
+		$_SESSION['valid_user'] = $username;
 		$_SESSION['name_change'] = "success";
 		$db->close();
 		header("Location: sickometer.php");
 		exit();
+
 	}	
 	elseif (isset($_POST['oldpassword']) && isset($_POST['newpassword']) && isset($_POST['confirmpassword'])) {
 		
@@ -51,12 +58,19 @@
 		}	
 
 		$confirm_password_query = "select password from users where username=\"".$_SESSION['valid_user']."\";";
+
 		$result = $db->query($confirm_password_query);
 		$confirm_password = mysqli_fetch_array($result);
 		$result->free();
+
 		if ( ($_POST['newpassword'] == $_POST['confirmpassword']) && ($_POST['oldpassword'] == $confirm_password['password']) ) {
-			$update_password_query = "update users set password=\"".$_POST['newpassword']."\" where username=\"".$_SESSION['valid_user']."\";";
-			$result = $db->query($update_password_query);
+			$newpass = $_POST['newpassword'];
+			$usertoupdate = $_SESSION['valid_user'];
+			$update_password_query = "update users set password=? where username=?;";
+			$stmt = $db->prepare($update_password_query);
+			$stmt->bind_param("ss", $newpass, $usertoupdate);
+
+			$stmt->execute();
 			$_SESSION['password_change'] = "success";
 		}
 		else {
@@ -67,7 +81,8 @@
 		header("Location: sickometer.php");
 		exit();
 	}
-	else {				//if (isset($_POST['showName']) && isset($_POST['showRate'])) {
+	else {
+
 		if (!empty($_POST['showName']) && !empty($_POST['showRate'])) {
 			$settings = "11";
 		} elseif (!empty($_POST['showName']) && empty($_POST['showRate'])) {
@@ -79,9 +94,13 @@
 		}
 
 		$_SESSION['settings_change'] = "success";
+		$user = $_SESSION['valid_user'];
 
-		$update_settings_query = "update users set settings=\"".$settings."\" where username=\"".$_SESSION['valid_user']."\";";
-		$result = $db->query($update_settings_query);
+		$update_settings_query = "update users set settings=? where username=?";
+		$stmt = $db->prepare($update_settings_query);
+
+		$stmt->bind_param("ss", $settings, $user);
+		$stmt->execute();
 
 		$db->close();
 		header("Location: sickometer.php");

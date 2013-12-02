@@ -12,8 +12,12 @@
 				exit();
 			}
 
+			$new_user_query = "insert into users(username, password, settings) values(?, ?, ?);";
+			$stmt = $db->prepare($new_user_query);
+
 			$username = $_POST['username'];
 			$password = $_POST['password'];
+			$settings = "00";
 
 			if (empty($_POST['username'])) {
 				$_SESSION['register_status'] = "username_empty";		// Missing username field
@@ -45,8 +49,8 @@
 			}
 			$result->free();
 
-			$new_user_query = "insert into users(username, password, settings) values(\"".$username."\", \"".$password."\", \"00\");";
-			$result = $db->query($new_user_query);
+			$stmt->bind_param("sss", $username, $password, $settings);
+			$stmt->execute();
 
 			$_SESSION['register_status'] = "success";					// Success
 			$db->close();
