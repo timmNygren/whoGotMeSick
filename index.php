@@ -21,9 +21,13 @@
 	<?php
 
 		if (isset($_SESSION['register_status'])) {
-			echo '<script>';
-			echo 'showRegisterOverlay();';
-			echo '</script>';
+			if ($_SESSION['register_status'] != "success") {
+				echo '<script>';
+				echo 'showRegisterOverlay();';
+				echo '</script>';
+			} else {
+				echo 'Successfully created user';
+			}
 			unset($_SESSION['register_status']);
 		}
 	?>
