@@ -44,7 +44,6 @@ span#title {
 #account_button,
 #report_button,
 #home_button {
-	background: url('Art/ButtonBackground.png');
 	position:absolute;
 	text-indent:0;
 	display:inline-block;
@@ -64,6 +63,26 @@ span#title {
 #login_button,
 #logout_button {
 	right:5px;
+}
+
+#login_button {
+	background: url('Images/LoginButton.png');
+}
+
+#logout_button {
+	background: url('Images/LogoutButton.png');
+}
+
+#account_button {
+	background: url('Images/AccountButton.png');
+}
+
+#report_button {
+	background: url('Images/ReportButton.png');
+}
+
+#home_button {
+	background: url('Images/HomeButton.png');
 }
 
 #login_button:active,
@@ -139,7 +158,9 @@ span#title {
 	padding: 10px 15px;
 	height: 205px;
 }
-#login_wrapper {
+
+#login_wrapper,
+#register_wrapper {
 	z-index: 10000;
 	background: rgba(0, 0, 0, 0.4);
 	position:fixed;

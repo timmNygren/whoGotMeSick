@@ -11,7 +11,7 @@
 
 <html>
 <head>
-	<title>Who Got Me Sick</title>
+	<title>Who Got Me Sick</title>&nbsp;
 	<link rel="stylesheet" type="text/css" href="whogotmesick.css">
 	<script src="jquery-2.0.3.min.js"></script>
 	<script src="overlay.js"></script>
@@ -19,12 +19,8 @@
 <body id="body">
 	<article class="top">
 		<h1>whogotmesick.com</h1>
-		<div id='logout_button'>
-			<a href='#' onClick='onLogoutClicked();'>Logout</a>
-		</div>
-		<div id="home_button">
-			<a href="index.php">Home</a>
-		</div>
+		<div id='logout_button' onclick="onLogoutClicked();"></div>
+		<div id="home_button" onclick="onHomeClicked();"></div>
 	</article>
 	<?php
 		echo 'Welcome '.$_SESSION['valid_user']."!";
