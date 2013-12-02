@@ -2,6 +2,15 @@
 
 	session_start();
 	
+	include('dbconnect.php');
+
+	$db = @new mysqli($db_server, $db_user_name, $db_password, $db_name);
+	if (mysqli_connect_errno()) {
+		echo 'Error: Could not connect to database.  Please try again later.';
+		header("Location: index.php");
+		exit();
+	}
+
 	$encoded = "";
 	
 	for ($i = 1;$i < 10 ; $i++) {
@@ -12,19 +21,27 @@
 			$encoded = $encoded."0";
 		}
 	}
-	
-	$db = new mysqli('localhost', 'team17', 'rhubarb', 'team17_database');
-	if (mysqli_connect_errno()) {
-		echo 'Error: Could not connect to database.  Please try again later.';
-		header("Location: index.php");
-		exit();
+
+	if (isset($_POST['comment'])) {
+		if (!empty($_POST['comment'])) {
+			$comment = $_POST['comment'];
+		} else {
+			$comment = "NULL";
+		}
 	}
+	$points = 0;
+	$time = "NOW()";
+	$location = $_POST['zip'];
+	$report_query = "insert into reports (user_id, location_id, symptoms, points, note, date) values(?, ?, ?, ?, ?, NOW())";
+	$stmt = $db->prepare($report_query);
 	
-	mysqli_query($db,"INSERT INTO reports (user_id, location_id, symptoms, points, note, date) VALUES (".$_SESSION['user_id'].", 2, ".$encoded.", 25, ".$_POST['comment'].", NOW())");
-	mysqli_close($db);
-	
+	$stmt->bind_param("iisis", $_SESSION['user_id'], $location, $encoded, $points, $comment);
+	$stmt->execute();
+	// mysqli_query($db,"INSERT INTO reports (user_id, location_id, symptoms, points, note, date) VALUES (".$_SESSION['user_id'].", 2, ".$encoded.", 25, ".$_POST['comment'].", NOW())");
+	// mysqli_close($db);
+	$db->close();
 	echo "<p>Report sent!</p>";
 	
-	header( "refresh:2;url=index.php" );
+	header( "refresh:5;url=index.php" );
  	exit();
 ?>	
