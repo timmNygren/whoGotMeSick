@@ -24,7 +24,7 @@
 			<input type="text" name="zip" value = "" pattern="\d*">
 			<input type="submit" value="Submit">
 		</form>
-		<textarea rows="4" cols="50" name="comment" form="userform"></textarea>
+		<textarea placeholder="Additional notes..." rows="4" cols="50" name="comment" form="userform"></textarea>
 	</div>
 </body>
 </html>	

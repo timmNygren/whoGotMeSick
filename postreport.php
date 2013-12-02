@@ -11,6 +11,9 @@
 		exit();
 	}
 
+	$report_query = "insert into reports (user_id, location_id, symptoms, points, note, date) values(?, ?, ?, ?, ?, NOW())";
+	$stmt = $db->prepare($report_query);
+
 	$encoded = "";
 	
 	for ($i = 1;$i < 10 ; $i++) {
@@ -29,19 +32,18 @@
 			$comment = "NULL";
 		}
 	}
-	$points = 0;
-	$time = "NOW()";
-	$location = $_POST['zip'];
-	$report_query = "insert into reports (user_id, location_id, symptoms, points, note, date) values(?, ?, ?, ?, ?, NOW())";
-	$stmt = $db->prepare($report_query);
 	
+	$points = 0;
+	$location = $_POST['zip'];
+
 	$stmt->bind_param("iisis", $_SESSION['user_id'], $location, $encoded, $points, $comment);
 	$stmt->execute();
-	// mysqli_query($db,"INSERT INTO reports (user_id, location_id, symptoms, points, note, date) VALUES (".$_SESSION['user_id'].", 2, ".$encoded.", 25, ".$_POST['comment'].", NOW())");
-	// mysqli_close($db);
+
+
 	$db->close();
+
 	echo "<p>Report sent!</p>";
 	
-	header( "refresh:5;url=index.php" );
+	header( "refresh:3;url=index.php" );
  	exit();
 ?>	
