@@ -99,9 +99,9 @@
 		<input type="submit">
 		</form>
 	</div>
-	<div id="candiv">
+	<div id='candiv'>
 		<span class='section_header'><h1>Sickometer</h1></span>
-		<canvas id="canvas" width="400" height="400" style="border:1px solid #000000;"></canvas>
+		<canvas id="canvas" width="400" height="400"></canvas>
 		<!-- Loaded after canvas so the element is populated -->
 		<script src="sickometer.js"></script>
 	</div>

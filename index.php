@@ -42,7 +42,7 @@
 		<div id="logo"></div>
 	<?php
 		if (isset($_SESSION['valid_user'])) {
-
+		
 			// Button for the account page link
 			echo "<div id='account_button' onClick='onAccountClicked();'></div>";
 
