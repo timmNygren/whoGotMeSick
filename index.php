@@ -30,7 +30,7 @@
 
 			// Button for the report page link
 			echo "<div id='report_button'>";
-			echo "<a href='#'>Report</a>";
+			echo "<a href='report.php'>Report</a>";
 			echo "</div>";
 
 			// Button for logout

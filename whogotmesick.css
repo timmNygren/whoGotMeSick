@@ -200,3 +200,13 @@ div.content {
 span.section_header {
 	text-align: center;
 }
+
+.checkbox-grid li {
+    display: block;
+    float: left;
+    width: 25%;
+}
+
+textarea {
+	display: inline;
+}
