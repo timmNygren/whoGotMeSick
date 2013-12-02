@@ -9,6 +9,13 @@
 		exit();
 	}
 
+	if (isset($_GET)) {
+		$search_query = "select * from users, reports, locations where user_id=users.id and locations.id=location_id and locations.zip_code=\"".$_GET['searchTerm']."\";";
+		unset($_GET);
+	} else {
+		$search_query = "select * from users, reports where user_id=users.id;";
+	}
+
 ?>
 <html>
 <head>
@@ -56,11 +63,17 @@
 
 	?>
 	</article>
-	
+	<article class="search">
+		<form action="index.php" method="get">
+			<h3>Search
+			<input type="text" name="searchTerm" size="100%" value="Enter a City, State, or Zip code" style="height:30px">
+			</h3>
+		</form>
+	</article>
 	<?php
 
-		$result = mysqli_query($db,"SELECT * FROM users, reports WHERE user_id=users.id;");
-		
+		$result = $db->query($search_query);
+
 		while($row = mysqli_fetch_array($result)){
 			$timestamp = strtotime($row['date']);
 			echo "<article class='main'>";
@@ -70,7 +83,7 @@
 			echo "<p class='top_right'><b>Date</b>: ". date("jS F o", $timestamp) ."</p>";
 			echo "<p class='bottom_right'><b>Points</b>: ". $row['points'] ."</p>";
 			echo "</article>";
-		  }
+		}
 
 		$db->close();
 	?>
