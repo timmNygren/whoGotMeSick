@@ -1,12 +1,10 @@
 What remains to be done:
 	- Color this bitch
-	- Report functionality
 	- Sick-O-Meter
 	- Look and feel for account page
 	- Make a footer
 	- Generalize header and footer into php files
 	- Date filtering
-	- Zip Code filtering / City, State Filtering (Search)
 	- Reflection paper
 	- Thumb up / down buttons that only appear when the user is logged in
 	
