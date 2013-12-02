@@ -35,6 +35,8 @@
 				if (isset($_SESSION['name_change'])) {
 					if ($_SESSION['name_change'] == 0) {
 						echo "Field is empty<br>";
+					} elseif ($_SESSION['name_change'] == 2) {
+						echo "User names CAN NOT contain spaces<br>";
 					} else {
 						echo "Username has been changed successfully<br>";		
 					}
