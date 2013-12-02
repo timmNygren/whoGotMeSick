@@ -10,8 +10,13 @@
 	}
 
 	if (isset($_GET)) {
-		$search_query = "select * from users, reports, locations where user_id=users.id and locations.id=location_id and locations.zip_code=\"".$_GET['searchTerm']."\";";
-		unset($_GET);
+		if (empty($_GET['search_query'])) {
+			$search_query = "select * from users, reports where user_id=users.id;";	
+		} else {
+			$search_query = "select * from users, reports, locations where user_id=users.id and locations.id=location_id and locations.zip_code=\"".$_GET['searchTerm']."\";";
+			unset($_GET);			
+		}
+
 	} else {
 		$search_query = "select * from users, reports where user_id=users.id;";
 	}
@@ -66,7 +71,7 @@
 	<article class="search">
 		<form action="index.php" method="get">
 			<h3>Search
-			<input type="text" name="searchTerm" size="100%" value="Enter a City, State, or Zip code" style="height:30px">
+			<input type="text" name="searchTerm" size="100%" placeholder="Enter a City, State, or Zip code" style="height:30px">
 			</h3>
 		</form>
 	</article>
