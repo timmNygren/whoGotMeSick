@@ -11,7 +11,7 @@
 
 <html>
 <head>
-	<title>Who Got Me Sick</title>
+	<title>Who Got Me Sick</title>&nbsp;
 	<link rel="stylesheet" type="text/css" href="whogotmesick.css">
 	<script src="jquery-2.0.3.min.js"></script>
 	<script src="overlay.js"></script>
