@@ -6,7 +6,7 @@
 	$db = @new mysqli($db_server, $db_user_name, $db_password, $db_name);
 	if (mysqli_connect_errno()) {
 		echo 'Error: Could not connect to database.  Please try again later.';
-		header("Location: sickometer.php");
+		header("Location: useraccountsettings.php");
 		exit();
 	}
 
@@ -14,7 +14,7 @@
 		if (empty($_POST['username'])) {
 			$_SESSION['name_change'] = "username_empty";
 			$db->close();
-			header("Location: sickometer.php");
+			header("Location: useraccountsettings.php");
 			exit();
 		}
 		else if (empty($_SESSION['valid_user'])) {
@@ -28,7 +28,7 @@
 			echo "Username has space";
 			$_SESSION['name_change'] = "contains_space";
 			$db->close();
-			header("Location: sickometer.php");
+			header("Location: useraccountsettings.php");
 			exit();
 		}
 
@@ -43,7 +43,7 @@
 		$_SESSION['valid_user'] = $username;
 		$_SESSION['name_change'] = "success";
 		$db->close();
-		header("Location: sickometer.php");
+		header("Location: useraccountsettings.php");
 		exit();
 
 	}	
@@ -53,7 +53,7 @@
 			
 			$_SESSION['password_change'] = "empty_field";
 			$db->close();
-			header("Location: sickometer.php");
+			header("Location: useraccountsettings.php");
 			exit();
 		}	
 
@@ -78,7 +78,7 @@
 		}
 
 		$db->close();
-		header("Location: sickometer.php");
+		header("Location: useraccountsettings.php");
 		exit();
 	}
 	else {
@@ -103,7 +103,7 @@
 		$stmt->execute();
 
 		$db->close();
-		header("Location: sickometer.php");
+		header("Location: useraccountsettings.php");
 		exit();
 	}
 ?>
