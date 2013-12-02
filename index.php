@@ -66,7 +66,7 @@
 	<article class="search">
 		<form action="index.php" method="get">
 			<h3>Search
-			<input type="text" name="searchTerm" size="100%" placeholder="Enter a Zip code" style="height:30px">
+			<input type="text" name="searchTerm" size="100%" placeholder="Enter a Zip code: e.g. 80401" pattern="\d\d\d\d\d" style="height:30px">
 			</h3>
 		</form>
 	</article>
