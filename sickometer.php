@@ -1,5 +1,12 @@
 <?php
 	session_start();
+
+	$db = new mysqli('localhost', 'team17', 'rhubarb', 'team17_database');
+	if (mysqli_connect_errno()) {
+		echo 'Error: Could not connect to database.  Please try again later.';
+		header("Location: sickometer.php");
+		exit();
+	}
 ?>	
 <html>
 <head>
@@ -53,17 +60,43 @@
 					unset($_SESSION['password_change']);
 				}
 			?>
-			Old password       :<input type="text" name="oldpassword"><br>
-			New password       :<input type="text" name="newpassword"><br>
-			Confirm Password   :<input type="text" name="confirmpassword"><br>
+			Old password       :<input type="password" name="oldpassword"><br>
+			New password       :<input type="password" name="newpassword"><br>
+			Confirm Password   :<input type="password" name="confirmpassword"><br>
 			<input type="submit">
 		</form>
 	</div>
 	<div class="content">
-		<span class='section_header'><h1>Privacy Settings</h1></span>
-		<form>
-		<input type="checkbox" name="vehicle" value="Bike">Show Username<br>
-		<input type="checkbox" name="vehicle" value="Car">Show Rating<br>
+		<span class='section_header'><h1>Privacy Settings</h1></span>		
+		<?php
+			if (isset($_SESSION['settings_change'])) {
+				echo "Settings updated<br>";
+				unset($_SESSION['settings_change']);
+			}
+
+			$set_settings_query = "select settings from users where username=\"".$_SESSION['valid_user']."\";";
+			$result = $db->query($set_settings_query);
+
+			$settings = mysqli_fetch_array($result);
+
+			if ($settings['settings'] == "11") {
+				$userCheck = "checked";
+				$rateCheck = "checked";
+			} elseif ($settings['settings'] == "10") {
+				$userCheck = "checked";
+				$rateCheck = "unchecked";
+			} elseif ($settings['settings'] == "01") {
+				$userCheck = "unchecked";
+				$rateCheck = "checked";
+			} else {
+				$userCheck = "unchecked";
+				$rateCheck = "unchecked";
+			}
+
+			echo "<form action='change.php' method='post'>";
+			echo "<input type='checkbox' name='showName' ".$userCheck.">Show Username<br>";
+			echo "<input type='checkbox' name='showRate' ".$rateCheck.">Show Rating<br>";
+		?>
 		<input type="submit">
 		</form>
 	</div>
