@@ -50,7 +50,7 @@
 			echo "<div id='account_button' onClick='onAccountClicked();'></div>";
 
 			// Button for the report page link
-			echo "<div id='report_button' onClick='onReportClicked();'></div>";
+			echo "<div id='report_button'></div>";
 
 			// Button for logout
 			echo "<div id='logout_button' onClick='onLogoutClicked();'></div>";
