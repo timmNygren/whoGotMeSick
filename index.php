@@ -74,6 +74,41 @@
 		</form>
 	</article>
 	<?php
+	/*
+		<li><input type="checkbox" name="symptom1" value="1" /><label for="text1">Fever</label></li>
+				<li><input type="checkbox" name="symptom2" value="1" /><label for="text2">Cough</label></li>
+				<li><input type="checkbox" name="symptom3" value="1" /><label for="text3">Stuffiness</label></li>
+				<li><input type="checkbox" name="symptom4" value="1" /><label for="text4">Aches</label></li>
+				<li><input type="checkbox" name="symptom5" value="1" /><label for="text5">Chills</label></li>
+				<li><input type="checkbox" name="symptom6" value="1" /><label for="text6">Fatigue</label></li>
+				<li><input type="checkbox" name="symptom7" value="1" /><label for="text7">Nausea/Vomiting</label></li>
+				<li><input type="checkbox" name="symptom8" value="1" /><label for="text8">Diarrhea</label></li>
+				<li><input type="checkbox" name="symptom9" value="1" /><label for="text9">Other</label></li>
+	*/
+
+	
+		function parseSymptoms($string) {
+			$symptoms = array(
+				"0" =>  "Fever",
+				"1" =>  "Cough",
+				"2" =>  "Stuffiness",
+				"3" =>  "Aches",
+				"4" =>  "Chills",
+				"5" =>  "Fatigue",
+				"6" =>  "Nausea/Vomiting",
+				"7" =>  "Diarrhea",
+				"8" =>  "Other"
+			);
+			$len = strlen($string);
+			$list = "";
+			for($i=0; $i < $len; $i++){
+				$key = substr($string, $i, 1);
+				if($key == '1') {
+					$list = $list." ".$symptoms[$i]; 
+				}
+			}
+			return $list;
+		}
 
 		$result = $db->query($search_query);
 		// echo $search_query;
@@ -84,7 +119,7 @@
 				$timestamp = strtotime($row['date']);
 				echo "<article class='main'>";
 				echo "<h1><b>User</b>: ". $row['username'] ."</h1>";
-				echo "<div class='symptoms'><b>Symptoms</b>: ". $row['symptoms'] ."</div>";
+				echo "<div class='symptoms'><b>Symptoms</b>: ". parseSymptoms($row['symptoms']) ."</div>";
 				echo "<div class='notes'><b>Notes</b>: ". $row['note'] ."</div>";
 				echo "<p class='top_right'><b>Date</b>: ". date("jS F o", $timestamp) ."</p>";
 				echo "<p class='bottom_right'><b>Points</b>: ". $row['points'] ."</p>";
