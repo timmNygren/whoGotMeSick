@@ -10,16 +10,14 @@
 	}
 
 	if (isset($_GET)) {
-		if (empty($_GET['search_query'])) {
+		if (empty($_GET['searchTerm']) && $_GET['searchTerm'] != 0) {
 			$search_query = "select * from users, reports where user_id=users.id;";	
 		} else {
-			$search_query = "select * from users, reports, locations where user_id=users.id and locations.id=location_id and locations.zip_code=\"".$_GET['searchTerm']."\";";
+			$search_query = "select * from users, reports where user_id=users.id and location_id=\"".$_GET['searchTerm']."\";";
 			unset($_GET);			
 		}
 
-	} else {
-		$search_query = "select * from users, reports where user_id=users.id;";
-	}
+	} 
 
 ?>
 <html>
@@ -71,25 +69,28 @@
 	<article class="search">
 		<form action="index.php" method="get">
 			<h3>Search
-			<input type="text" name="searchTerm" size="100%" placeholder="Enter a City, State, or Zip code" style="height:30px">
+			<input type="text" name="searchTerm" size="100%" placeholder="Enter a Zip code" style="height:30px">
 			</h3>
 		</form>
 	</article>
 	<?php
 
 		$result = $db->query($search_query);
-
-		while($row = mysqli_fetch_array($result)){
-			$timestamp = strtotime($row['date']);
-			echo "<article class='main'>";
-			echo "<h1><b>User</b>: ". $row['username'] ."</h1>";
-			echo "<div class='symptoms'><b>Symptoms</b>: ". $row['symptoms'] ."</div>";
-			echo "<div class='notes'><b>Notes</b>: ". $row['note'] ."</div>";
-			echo "<p class='top_right'><b>Date</b>: ". date("jS F o", $timestamp) ."</p>";
-			echo "<p class='bottom_right'><b>Points</b>: ". $row['points'] ."</p>";
-			echo "</article>";
+		echo $search_query;
+		if ($result->num_rows == 0) {
+			echo "<h1>There are no sicknesses in this area</h1><br>";
+		} else {
+			while($row = mysqli_fetch_array($result)){
+				$timestamp = strtotime($row['date']);
+				echo "<article class='main'>";
+				echo "<h1><b>User</b>: ". $row['username'] ."</h1>";
+				echo "<div class='symptoms'><b>Symptoms</b>: ". $row['symptoms'] ."</div>";
+				echo "<div class='notes'><b>Notes</b>: ". $row['note'] ."</div>";
+				echo "<p class='top_right'><b>Date</b>: ". date("jS F o", $timestamp) ."</p>";
+				echo "<p class='bottom_right'><b>Points</b>: ". $row['points'] ."</p>";
+				echo "</article>";
+			}
 		}
-
 		$db->close();
 	?>
 </body>
