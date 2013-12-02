@@ -5,13 +5,15 @@
 <head>
 	<title>Who Got Me Sick</title>
 	<link rel="stylesheet" type="text/css" href="whogotmesick.css">
+	<script src="jquery-2.0.3.min.js"></script>
+	<script src="overlay.js"></script>
 </head>
 <body id="body">
 	<article class="top">
 		<h1>whogotmesick.com</h1>
 		<div id='logout_button'>
 			<a href='#' onClick='onLogoutClicked();'>Logout</a>
-		</div>
+		</div> 
 		<div id="home_button">
 			<a href="index.php">Home</a>
 		</div>
