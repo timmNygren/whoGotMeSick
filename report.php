@@ -19,7 +19,7 @@
 				<li><input type="checkbox" name="symptom6" value="1" /><label for="text6">Fatigue</label></li>
 				<li><input type="checkbox" name="symptom7" value="1" /><label for="text7">Nausea/Vomiting</label></li>
 				<li><input type="checkbox" name="symptom8" value="1" /><label for="text8">Diarrhea</label></li>
-				<li><input type="checkbox" name="symptom9" value="1" /><label for="text8">Other</label></li>
+				<li><input type="checkbox" name="symptom9" value="1" /><label for="text9">Other</label></li>
 			</ul>
 			<input type="text" name="zip" value = "" pattern="\d*">
 			<input type="submit" value="Submit">
