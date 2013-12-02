@@ -1,20 +1,15 @@
 <?php
 	session_start();
-
-	$db = new mysqli('localhost', 'team17', 'rhubarb', 'team17_database');
-	if (mysqli_connect_errno()) {
-		echo 'Error: Could not connect to database.  Please try again later.';
-		header("Location: sickometer.php");
-		exit();
-	}
+	include("dbconnect.php");
 ?>
 
 <html>
 <head>
 	<title>Who Got Me Sick</title>&nbsp;
-	<link rel="stylesheet" type="text/css" href="whogotmesick.css">
+	<link rel="stylesheet" type="text/css" href="global.css">
+	<link rel="stylesheet" type="text/css" href="useraccountsettings.css">
 	<script src="jquery-2.0.3.min.js"></script>
-	<script src="overlay.js"></script>
+	<script src="handlebuttonpressed.js"></script>
 </head>
 <body id="body">
 	<article class="top">
