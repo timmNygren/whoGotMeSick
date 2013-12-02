@@ -26,10 +26,10 @@ create table locations (
 		
 
 insert into users(username, password, settings)
-	values("tnygren", "drowssap", "100101"),
-			("hlang", "password", "101101"),
-			("abodnar", "superpassword", "000000"),
-			("testUser", "testPassword", "011101");
+	values("tnygren", "drowssap", "00"),
+			("hlang", "password", "00"),
+			("abodnar", "superpassword", "00"),
+			("testUser", "testPassword", "00");
 
 insert into locations(zip_code)
 	values(80401),(81637),(81631),(91201);

@@ -30,9 +30,9 @@
 			<span class='section_header'><h1>Change User Name</h1></span>
 			<?php
 				if (isset($_SESSION['name_change'])) {
-					if ($_SESSION['name_change'] == 0) {
+					if ($_SESSION['name_change'] == "username_empty") {
 						echo "Field is empty<br>";
-					} elseif ($_SESSION['name_change'] == 2) {
+					} elseif ($_SESSION['name_change'] == "contains_space") {
 						echo "User names CAN NOT contain spaces<br>";
 					} else {
 						echo "Username has been changed successfully<br>";		
@@ -49,11 +49,11 @@
 			<span class='section_header'><h1>Change Password</h1></span>
 			<?php
 				if (isset($_SESSION['password_change'])) {
-					if ($_SESSION['password_change'] == 0) {
+					if ($_SESSION['password_change'] == "empty_field") {
 						echo "One or more fields missing <br>";
-					} elseif ($_SESSION['password_change'] == 1) {
+					} elseif ($_SESSION['password_change'] == "no_match") {
 						echo "Passwords DO NOT match<br>";
-					} elseif ($_SESSION['password_change'] == 2) {
+					} elseif ($_SESSION['password_change'] == "success") {
 						echo "Password Successfully changed<br>";
 					}
 					unset($_SESSION['password_change']);
