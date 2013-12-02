@@ -12,7 +12,7 @@
 ?>
 <html>
 <head>
-	<title>Who Got Me Sick</title><br>
+	<title>Who Got Me Sick</title>
 	<link rel="stylesheet" type="text/css" href="whogotmesick.css">
 	<script src="jquery-2.0.3.min.js"></script>
 	<script src="overlay.js"></script>
@@ -49,8 +49,8 @@
 				echo "Could not log you in";
 			}
 
-			echo "<div id='login_button'>";
-			echo "<a href='#'>Login</a>";
+			echo "<div id='logout_button' onClick='onLogoutClicked();'>";
+			echo "<img src='Images/LoginButton.png'></img>";
 			echo "</div>";
 		}
 

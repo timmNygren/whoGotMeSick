@@ -61,9 +61,7 @@ $(document.body).delegate("#logout_button", "click", function(event) {
 
 });
 
-$(document.body).delegate("#register_button", "click", function(event) {
-	event.preventDefault();
-	console.log("Register");
+function toggleRegister() {
 	$("#login_overlay").css("display", "none");
 	if (register_overlay_created == 1) {
 		console.log("Skipping recreate");
@@ -95,7 +93,13 @@ $(document.body).delegate("#register_button", "click", function(event) {
 		</form>\
 		'));
 	register_overlay_created = 1;
-})
+}
+
+$(document.body).delegate("#register_button", "click", function(event) {
+	event.preventDefault();
+	console.log("Register");
+	toggleRegister();
+});
 
 function onLogoutClicked() {
 	var ret_val = confirm("Do you really want to logout?");
