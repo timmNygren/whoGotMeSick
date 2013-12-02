@@ -69,9 +69,9 @@ function toggleRegister() {
 		return;
 	}
 	$('#login_wrapper').append($('\
-		<form method="post" action="index.php">\
+		<form method="post" action="register.php">\
 			<table id="register_overlay">\
-				<th><h2>Login</h2></th>\
+				<th><h2>Register</h2></th>\
 				<tr>\
 					<td class="form_label">Username:</td>\
 					<td><input class="form_field" type="text" name="userid"></td>\

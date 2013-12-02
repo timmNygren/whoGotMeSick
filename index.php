@@ -18,6 +18,16 @@
 	<script src="overlay.js"></script>
 </head>
 <body>
+	<?php
+
+		if (isset($_SESSION['register_status'])) {
+			echo "REGISTER STATUS FAILED";
+			echo '<script type="text/javascript">';
+			echo 'toggleRegister();';
+			echo '</script>';
+			unset($_SESSION['register_status']);
+		}
+	?>
 	<article class="top">
 		<span id="title"><h1>whogotmesick.com</h1></span>
 	<?php
