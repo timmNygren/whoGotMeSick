@@ -12,7 +12,7 @@
 
 	if (isset($_POST['username'])) {
 		if (empty($_POST['username'])) {
-			$_SESSION['name_change'] = 0;
+			$_SESSION['name_change'] = "username_empty";
 			$db->close();
 			header("Location: sickometer.php");
 			exit();
@@ -26,7 +26,7 @@
 
 		if (preg_match('/\s/', $_POST['username'])) {
 			echo "Username has space";
-			$_SESSION['name_change'] = 2;
+			$_SESSION['name_change'] = "contains_space";
 			$db->close();
 			header("Location: sickometer.php");
 			exit();
@@ -35,7 +35,7 @@
 		$update_user_query = "update users set username=\"".$_POST['username']."\" where username=\"".$_SESSION['valid_user']."\";";
 		$_SESSION['valid_user'] = $_POST['username'];
 		$result = $db->query($update_user_query);
-		$_SESSION['name_change'] = 1;
+		$_SESSION['name_change'] = "success";
 		$db->close();
 		header("Location: sickometer.php");
 		exit();
@@ -44,7 +44,7 @@
 		
 		if (empty($_POST['oldpassword']) || empty($_POST['newpassword']) || empty($_POST['confirmpassword'])) {
 			
-			$_SESSION['password_change'] = 0;
+			$_SESSION['password_change'] = "empty_field";
 			$db->close();
 			header("Location: sickometer.php");
 			exit();
@@ -57,10 +57,10 @@
 		if ( ($_POST['newpassword'] == $_POST['confirmpassword']) && ($_POST['oldpassword'] == $confirm_password['password']) ) {
 			$update_password_query = "update users set password=\"".$_POST['newpassword']."\" where username=\"".$_SESSION['valid_user']."\";";
 			$result = $db->query($update_password_query);
-			$_SESSION['password_change'] = 2;
+			$_SESSION['password_change'] = "success";
 		}
 		else {
-			$_SESSION['password_change'] = 1;
+			$_SESSION['password_change'] = "no_match";
 		}
 
 		$db->close();
@@ -78,7 +78,7 @@
 			$settings = "00";
 		}
 
-		$_SESSION['settings_change'] = 1;
+		$_SESSION['settings_change'] = "success";
 
 		$update_settings_query = "update users set settings=\"".$settings."\" where username=\"".$_SESSION['valid_user']."\";";
 		$result = $db->query($update_settings_query);

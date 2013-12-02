@@ -56,7 +56,7 @@ function showRegisterOverlay() {
 				</tr>\
 				<tr>\
 					<td class="form_label">Confirm:</td>\
-					<td><input class="form_field" type="text" name="userid"></td>\
+					<td><input class="form_field" type="password" name="passconfirm"></td>\
 				</tr>\
 				<tr>\
 					<td align="center" colspan="2">\

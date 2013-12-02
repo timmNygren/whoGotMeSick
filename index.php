@@ -21,7 +21,6 @@
 	<?php
 
 		if (isset($_SESSION['register_status'])) {
-			echo "REGISTER STATUS FAILED";
 			echo '<script>';
 			echo 'showRegisterOverlay();';
 			echo '</script>';
