@@ -1,5 +1,6 @@
 var login_overlay_created = 0;
 var register_overlay_created = 0;
+var report_overlay_created = 0;
 
 function showLoginOverlay() {
 	console.log("Showing Login Overlay");
@@ -70,9 +71,52 @@ function showRegisterOverlay() {
 	register_overlay_created = 1;
 }
 
+function showReportOverlay() {
+	console.log("Showing Report Overlay");
+	if (report_overlay_created == 1) {
+		$('#report_wrapper').css("display", "");
+		return;
+	}
+	$('\
+		<div id="report_wrapper">\
+			<form action="postreport.php" method="post" id="userform">\
+				<table id="report_overlay">\
+					<th><span id="title"><h1>Submit Report</h1></span></th>\
+					<tr>\
+						<td><input type="checkbox" name="symptom1" value="1" /><label for="text1">Fever</label></td>\
+						<td><input type="checkbox" name="symptom2" value="1" /><label for="text2">Cough</label></td>\
+						<td><input type="checkbox" name="symptom3" value="1" /><label for="text3">Stuffiness</label></td>\
+					</tr>\
+					<tr>\
+						<td><input type="checkbox" name="symptom4" value="1" /><label for="text4">Aches</label></td>\
+						<td><input type="checkbox" name="symptom5" value="1" /><label for="text5">Chills</label></td>\
+						<td><input type="checkbox" name="symptom6" value="1" /><label for="text6">Fatigue</label></td>\
+					</tr>\
+					<tr>\
+						<td><input type="checkbox" name="symptom7" value="1" /><label for="text7">Nausea/Vomiting</label></td>\
+						<td><input type="checkbox" name="symptom8" value="1" /><label for="text8">Diarrhea</label></td>\
+						<td><input type="checkbox" name="symptom9" value="1" /><label for="text9">Other</label></td>\
+					</tr>\
+					<tr>\
+					 	<td colspan="3"><input type="text" name="zip" value = "" pattern="\d\d\d\d\d" placeholder="e.g. 80401"></td>\
+					</tr>\
+					<tr>\
+						<td colspan="3"><input type="submit" value="Submit"></td>\
+					</tr>\
+					<tr>\
+						<td colspan="3"><textarea placeholder="Additional notes..." rows="4" cols="50" name="comment" form="userform"></textarea></td>\
+					</tr>\
+				</table>\
+			</form>\
+		</div>\
+		').appendTo(document.body);
+	report_overlay_created = 1;
+}
+
 function hideOverlays() {
 	$('#login_wrapper').css("display", "none");
 	$('#register_wrapper').css("display", "none");
+	$('#report_wrapper').css("display", "none");
 }
 
 $('document').ready(function() {
@@ -91,12 +135,22 @@ $(document.body).delegate("#register_wrapper", "click", function() {
 	hideOverlays();
 });
 
+$(document.body).delegate("#report_wrapper", "click", function() {
+	console.log("Hiding");
+	hideOverlays();
+});
+
 $(document.body).delegate("#login_overlay", "click", function(event) {
 	console.log("Click inside");
 	event.stopPropagation();
 });
 
 $(document.body).delegate("#register_overlay", "click", function(event) {
+	console.log("Click inside register overlay");
+	event.stopPropagation();
+});
+
+$(document.body).delegate("#report_overlay", "click", function(event) {
 	console.log("Click inside register overlay");
 	event.stopPropagation();
 });
@@ -114,16 +168,19 @@ $(document.body).delegate("#register_button", "click", function(event) {
 	showRegisterOverlay();
 });
 
+$(document.body).delegate("#report_button", "click", function(event) {
+	event.preventDefault();
+	console.log("Report");
+	hideOverlays();
+	showReportOverlay();
+});
+
 function onHomeClicked() {
 	window.location.href = "index.php";
 }
 
 function onAccountClicked() {
 	window.location.href = "sickometer.php";
-}
-
-function onReportClicked() {
-	window.location.href = "report.php";
 }
 
 function onLogoutClicked() {
