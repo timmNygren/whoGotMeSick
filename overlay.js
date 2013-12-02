@@ -14,7 +14,7 @@ function showLoginOverlay() {
 				<th><h2>Login</h2></th>\
 				<tr>\
 					<td class="form_label">Username:</td>\
-					<td><input class="form_field" type="text" name="userid"></td>\
+					<td><input class="form_field" type="text" name="username"></td>\
 				</tr>\
 				<tr>\
 					<td class="form_label">Password:</td>\
@@ -48,7 +48,7 @@ function showRegisterOverlay() {
 				<th><h2>Register</h2></th>\
 				<tr>\
 					<td class="form_label">Username:</td>\
-					<td><input class="form_field" type="text" name="userid"></td>\
+					<td><input class="form_field" type="text" name="username"></td>\
 				</tr>\
 				<tr>\
 					<td class="form_label">Password:</td>\
@@ -56,7 +56,7 @@ function showRegisterOverlay() {
 				</tr>\
 				<tr>\
 					<td class="form_label">Confirm:</td>\
-					<td><input class="form_field" type="text" name="userid"></td>\
+					<td><input class="form_field" type="text" name="confirm"></td>\
 				</tr>\
 				<tr>\
 					<td align="center" colspan="2">\

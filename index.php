@@ -43,7 +43,7 @@
 			echo "<div id='logout_button' onClick='onLogoutClicked();'></div>";
 		} else {
 
-			if (isset($userid)) {
+			if (isset($username)) {
 				// Tried to log in and failed
 				echo "Could not log you in";
 			}
