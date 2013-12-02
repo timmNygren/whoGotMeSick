@@ -1,5 +1,6 @@
 var login_overlay_created = 0;
 var register_overlay_created = 0;
+
 $('document').ready(function() {
 	$('#login_button').click(function(event) {
 		if (login_overlay_created == 1) {

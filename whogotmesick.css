@@ -4,8 +4,8 @@ body {
 	right: auto;
 	margin-left: auto;
 	margin-right: auto;
-	width: 60%;
-	background-image: url('back.png');
+	width: 70%;
+	background: -webkit-linear-gradient(top, #8acc76 0%,#ffffff 100%); /* Chrome10+,Safari5.1+ */
 }
 
 span#title {
@@ -39,11 +39,11 @@ span#title {
 	border: 1px solid #000;
 }
 
-button_base,
 #login_button,
 #logout_button,
 #account_button,
-#report_button {
+#report_button,
+#home_button {
 	background: url('Art/ButtonBackground.png');
 	position:absolute;
 	text-indent:0;
@@ -66,11 +66,6 @@ button_base,
 	right:5px;
 }
 
-#login_button:hover,
-#logout_button:hover {
-	background-color:#dfdfdf;
-}
-
 #login_button:active,
 #logout_button:active {
 	position:absolute;
@@ -82,9 +77,6 @@ button_base,
 	right:120px;
 }
 
-#account_button:hover {
-	background-color:#dfdfdf;
-}
 #account_button:active {
 	position:absolute;
 	top: 13%;
@@ -95,19 +87,32 @@ button_base,
 	right: 235px;
 }
 
-#report_button:hover {
-	background-color: #dfdfdf;
-}
-
 #report_button:active {
 	position: absolute;
 	top: 13%;
 	right: 235px;
 }
 
+#home_button {
+	right: 120px;
+}
+
+#home_button:active {
+	position: absolute;
+	top: 13%;
+	right: 120px;
+}
+
+#login_button:hover,
+#logout_button:hover,
+#account_button:hover,
+#report_button:hover,
+#home_button:hover {
+	background-color:#dfdfdf;
+}
+
 .top {
 	background-color:#909090;
-	width: 100%;
 	margin-right: auto;
 	margin-left: auto;
 	position:relative;
@@ -116,9 +121,9 @@ button_base,
 }
 
 .main {
-	width: 95%;
+	width: 90%;
 	position:relative;
-	margin-left: 2.5%;
+	margin-left: auto;
 	margin-bottom: 4px;
 	background-color:#dfdfdf;
 	text-align:left;
@@ -129,7 +134,7 @@ button_base,
 	border-width:2px;
 	margin-right: auto;
 	border:2px solid #000;
-	/*border-radius: 15px;*/
+	border-radius: 15px;
 	padding: 10px 15px;
 	height: 205px;
 }
@@ -179,4 +184,19 @@ button_base,
 	margin-top: 100px;
 	margin-left: auto;
 	margin-right: auto;
+
+}
+
+div.content {
+	width: 95%;
+	background-color: #FFF;
+	margin-left: auto;
+	margin-right: auto;
+	border-radius: 10px;
+	font-family:Arial, Helvetica, sans-serif;
+	text-shadow:1px 1px 0px #ffffff;
+}
+
+span.section_header {
+	text-align: center;
 }
