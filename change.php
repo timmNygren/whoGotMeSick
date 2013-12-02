@@ -24,6 +24,14 @@
 			exit();
 		}
 
+		if (preg_match('/\s/', $_POST['username'])) {
+			echo "Username has space";
+			$_SESSION['name_change'] = 2;
+			$db->close();
+			header("Location: sickometer.php");
+			exit();
+		}
+
 		$update_user_query = "update users set username=\"".$_POST['username']."\" where username=\"".$_SESSION['valid_user']."\";";
 		$_SESSION['valid_user'] = $_POST['username'];
 		$result = $db->query($update_user_query);
