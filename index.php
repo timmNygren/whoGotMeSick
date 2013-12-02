@@ -3,16 +3,11 @@
 
 	include('dbconnect.php');
 
-	$db = @new mysqli($db_server, $db_user_name, $db_password, $db_name);
-	if (mysqli_connect_errno()) {
-		echo 'Error: Could not connect to database.  Please try again later.';
-		exit();
-	}
-
 	if (isset($_GET)) {
 		if (empty($_GET['searchTerm'])) {
 			$search_query = "select * from users, reports where user_id=users.id;";	
-		} else {
+		} 
+		else {
 			$search_query = "select * from users, reports where user_id=users.id and location_id=\"".$_GET['searchTerm']."\";";
 			unset($_GET);			
 		}
@@ -23,13 +18,15 @@
 <html>
 <head>
 	<title>Who Got Me Sick</title>&nbsp;
-	<link rel="stylesheet" type="text/css" href="whogotmesick.css">
+	<link rel="stylesheet" type="text/css" href="global.css">
+	<link rel="stylesheet" type="text/css" href="index.css">
+	<link rel="stylesheet" type="text/css" href="report.css">
 	<script src="jquery-2.0.3.min.js"></script>
-	<script src="overlay.js"></script>
+	<script src="overlaycontrol.js"></script>
+	<script src="handlebuttonpressed.js"></script>
 </head>
 <body>
 	<?php
-
 		if (isset($_SESSION['register_status'])) {
 			if ($_SESSION['register_status'] != "success") {
 				echo '<script>';

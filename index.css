@@ -1,0 +1,96 @@
+body {
+	font-family:Arial, Helvetica, sans-serif;
+	text-shadow:1px 1px 0px #ffffff;
+	right: auto;
+	margin-left: auto;
+	margin-right: auto;
+	width: 70%;
+	background: -webkit-linear-gradient(top, #98DFFC 0%,#ffffff 300px); /* Chrome10+,Safari5.1+ */
+}
+
+#account_button,
+#report_button,
+#home_button {
+	position:absolute;
+	text-indent:0;
+	display:inline-block;
+	color:#909090;
+	font-weight:bold;
+	font-style:normal;
+	height:50px;
+	line-height:50px;
+	width:100px;
+	text-decoration:none;
+	text-align:center;
+	text-shadow:1px 1px 0px #ffffff;	
+	border-radius: 15px; 
+	top:15%;
+}
+
+#account_button {
+	background: url('Images/AccountButton.png');
+}
+
+#report_button {
+	background: url('Images/ReportButton.png');
+}
+
+#account_button {
+	right:120px;
+}
+
+#account_button:active {
+	position:absolute;
+	top: 13%;
+	right:120px;
+}
+
+#report_button {
+	right: 235px;
+}
+
+#report_button:active {
+	position: absolute;
+	top: 13%;
+	right: 235px;
+}
+
+#overview_button:hover,
+#login_button:hover,
+#logout_button:hover,
+#account_button:hover,
+#report_button:hover {
+	background-color:#dfdfdf;
+}
+
+#login_wrapper,
+#register_wrapper,
+#report_wrapper {
+	z-index: 10000;
+	background: rgba(0, 0, 0, 0.4);
+	position:fixed;
+	top: 0px; 
+	left: 0px; 
+	width: 100%; 
+	height: 100%; 
+	text-align:center;
+	vertical-align:middle;
+}
+
+#login_overlay,
+#register_overlay,
+#report_overlay {
+	opacity: 1.0;
+	background: rgba(255, 255, 255, 1);
+	color: rgba(0, 0, 0, 1);
+	border-radius: 15px;
+	width: 500px;
+	height: 200px;
+	margin-top: 100px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+textarea {
+	display: inline;
+}
