@@ -34,19 +34,13 @@
 		if (isset($_SESSION['valid_user'])) {
 
 			// Button for the account page link
-			echo "<div id='account_button'>";
-			echo "<a href='sickometer.php'>Account</a>";
-			echo "</div>";
+			echo "<div id='account_button' onClick='onAccountClicked();'></div>";
 
 			// Button for the report page link
-			echo "<div id='report_button'>";
-			echo "<a href='report.php'>Report</a>";
-			echo "</div>";
+			echo "<div id='report_button' onClick='onReportClicked();'></div>";
 
 			// Button for logout
-			echo "<div id='logout_button'>";
-			echo "<a href='#' onClick='onLogoutClicked();'>Logout</a>";
-			echo "</div>";
+			echo "<div id='logout_button' onClick='onLogoutClicked();'></div>";
 		} else {
 
 			if (isset($userid)) {
@@ -54,9 +48,7 @@
 				echo "Could not log you in";
 			}
 
-			echo "<div id='login_button'>";
-			echo "<img src='Images/LoginButton.png'></img>";
-			echo "</div>";
+			echo "<div id='login_button'></div>";
 		}
 
 	?>
