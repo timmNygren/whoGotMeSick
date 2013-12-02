@@ -21,7 +21,7 @@
 		<h1>whogotmesick.com</h1>
 		<div id='logout_button'>
 			<a href='#' onClick='onLogoutClicked();'>Logout</a>
-		</div> 
+		</div>
 		<div id="home_button">
 			<a href="index.php">Home</a>
 		</div>

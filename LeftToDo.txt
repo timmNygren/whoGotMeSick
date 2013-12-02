@@ -8,4 +8,5 @@ What remains to be done:
 	- Date filtering
 	- Zip Code filtering / City, State Filtering (Search)
 	- Reflection paper
+	- Thumb up / down buttons that only appear when the user is logged in
 	

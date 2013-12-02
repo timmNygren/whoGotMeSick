@@ -50,6 +50,11 @@ $(document.body).delegate("#login_overlay", "click", function(event) {
 	event.stopPropagation();
 });
 
+$(document.body).delegate("#register_overlay", "click", function(event) {
+	console.log("Click inside register overlay");
+	event.stopPropagation();
+});
+
 $(document.body).delegate("#logout_button", "click", function(event) {
 	event.preventDefault();
 	console.log("Logout");
