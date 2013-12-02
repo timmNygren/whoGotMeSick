@@ -14,6 +14,7 @@
 				exit();
 			}
 
+
 			// User has just tried to log in
 			$username = $_POST['username'];
 			$password = $_POST['password'];
