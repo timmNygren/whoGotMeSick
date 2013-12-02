@@ -29,7 +29,7 @@
 		}
 	?>
 	<article class="top">
-		<span id="title"><h1>whogotmesick.com</h1></span>
+		<div id="logo"></div>
 	<?php
 		if (isset($_SESSION['valid_user'])) {
 
