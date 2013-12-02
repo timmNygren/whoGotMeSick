@@ -11,15 +11,15 @@
 	<div >
 		<form action="postreport.php" method="post" id="userform">
 			<ul class="checkbox-grid">
-				<li><input type="checkbox" name="text1" value="value1" /><label for="text1">Fever</label></li>
-				<li><input type="checkbox" name="text2" value="value2" /><label for="text2">Cough</label></li>
-				<li><input type="checkbox" name="text3" value="value3" /><label for="text3">Stuffiness</label></li>
-				<li><input type="checkbox" name="text4" value="value4" /><label for="text4">Aches</label></li>
-				<li><input type="checkbox" name="text5" value="value5" /><label for="text5">Chills</label></li>
-				<li><input type="checkbox" name="text6" value="value6" /><label for="text6">Fatigue</label></li>
-				<li><input type="checkbox" name="text7" value="value7" /><label for="text7">Nausea/Vomiting</label></li>
-				<li><input type="checkbox" name="text8" value="value8" /><label for="text8">Diarrhea</label></li>
-				<li><input type="checkbox" name="text8" value="value8" /><label for="text8">Other</label></li>
+				<li><input type="checkbox" name="symptom1" value="1" /><label for="text1">Fever</label></li>
+				<li><input type="checkbox" name="symptom2" value="1" /><label for="text2">Cough</label></li>
+				<li><input type="checkbox" name="symptom3" value="1" /><label for="text3">Stuffiness</label></li>
+				<li><input type="checkbox" name="symptom4" value="1" /><label for="text4">Aches</label></li>
+				<li><input type="checkbox" name="symptom5" value="1" /><label for="text5">Chills</label></li>
+				<li><input type="checkbox" name="symptom6" value="1" /><label for="text6">Fatigue</label></li>
+				<li><input type="checkbox" name="symptom7" value="1" /><label for="text7">Nausea/Vomiting</label></li>
+				<li><input type="checkbox" name="symptom8" value="1" /><label for="text8">Diarrhea</label></li>
+				<li><input type="checkbox" name="symptom8" value="1" /><label for="text8">Other</label></li>
 			</ul>
 			<input type="text" name="zip" value = "" pattern="\d*">
 			<input type="submit" value="Submit">
