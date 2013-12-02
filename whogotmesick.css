@@ -5,6 +5,7 @@ body {
 	margin-left: auto;
 	margin-right: auto;
 	width: 70%;
+	background: linear-gradient(top, #98DFFC 0%,#ffffff 100%);
 	background: -webkit-linear-gradient(top, #98DFFC 0%,#ffffff 100%); /* Chrome10+,Safari5.1+ */
 }
 
@@ -157,6 +158,10 @@ span#title {
 	border-radius: 15px;
 	padding: 10px 15px;
 	height: 205px;
+}
+
+.c-slider {
+	border: 1px solid #000;
 }
 
 #login_wrapper,

@@ -108,11 +108,11 @@
 	<div>
 		<span class='section_header'><h1>Sickometer metrics</h1></span>
 		<p>Frequency</p><br>
-		<input type="range" name="stuff" min="1" max="10" value="1"><br>
+		<canvas id="freq_canvas" class="c-slider" width="400" height="25"></canvas><br>
 		<p>Severity</p><br>
-		<input type="range" name="more stuff" min="1" max="10" value="1"><br>
+		<canvas id="sev_canvas" class="c-slider" width="400" height="25"></canvas><br>
 		<p>Duration</p><br>
-		<input type="range" name="points" min="1" max="10" value="1"><br>
+		<canvas id="dur_canvas" class="c-slider" width="400" height="25"></canvas><br>
 	</div>
 </body>
 </html>	

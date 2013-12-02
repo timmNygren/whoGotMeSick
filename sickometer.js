@@ -46,4 +46,29 @@ function drawArrow(ctx,percent,radius,x,y) {
 fillArc(ctx, canvas.width);
 drawArrow(ctx,66,canvas.width/2,canvas.width/2,2*canvas.width/3);
 
-console.log("tacos")
+function drawSlider(ctx, percent, width, height){
+	ctx.fillStyle = "white";
+	ctx.fillRect(0,0,width, height);
+	
+	var pos = percent*width/100;
+	var thick = 10;
+	ctx.fillStyle = "black";
+	ctx.fillRect(pos - thick/2,0,thick, height);
+}
+
+
+$( document ).ready(function() {
+	var fcanvas = document.getElementById('freq_canvas');
+	var scanvas = document.getElementById('sev_canvas');
+	var dcanvas = document.getElementById('dur_canvas');
+
+	var fctx=fcanvas.getContext("2d");
+	var sctx=scanvas.getContext("2d");
+	var dctx=dcanvas.getContext("2d");
+
+	var h = fcanvas.height;
+	var w = fcanvas.width;
+	drawSlider(fctx, 20, w, h)
+	drawSlider(sctx, 20, w, h)
+	drawSlider(dctx, 20, w, h)
+});
