@@ -22,8 +22,8 @@
 
 		if (isset($_SESSION['register_status'])) {
 			echo "REGISTER STATUS FAILED";
-			echo '<script type="text/javascript">';
-			echo 'toggleRegister();';
+			echo '<script>';
+			echo 'showRegisterOverlay();';
 			echo '</script>';
 			unset($_SESSION['register_status']);
 		}

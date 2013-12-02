@@ -138,7 +138,9 @@ span#title {
 	padding: 10px 15px;
 	height: 205px;
 }
-#login_wrapper {
+
+#login_wrapper,
+#register_wrapper {
 	z-index: 10000;
 	background: rgba(0, 0, 0, 0.4);
 	position:fixed;
