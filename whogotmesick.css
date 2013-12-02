@@ -215,7 +215,7 @@ span#title {
 
 }
 
-div.content {
+.content {
 	width: 95%;
 	background-color: #FFF;
 	margin-left: auto;
@@ -225,7 +225,7 @@ div.content {
 	text-shadow:1px 1px 0px #ffffff;
 }
 
-span.section_header {
+.section_header {
 	text-align: center;
 }
 
@@ -236,5 +236,15 @@ span.section_header {
 }
 
 textarea {
-	float: none;
+	display: inline;
+}
+
+#logo {
+	background: url('Images/Logo.png');
+	background-repeat: no-repeat;
+	width: 250px;
+	height: 50px;
+	margin-top: 7px;
+	margin-bottom: 8px;
+	margin-left: 15px;
 }

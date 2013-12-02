@@ -29,7 +29,7 @@
 		}
 	?>
 	<article class="top">
-		<span id="title"><h1>whogotmesick.com</h1></span>
+		<div id="logo"></div>
 	<?php
 		if (isset($_SESSION['valid_user'])) {
 
@@ -48,7 +48,7 @@
 			echo "<div id='logout_button' onClick='onLogoutClicked();'></div>";
 		} else {
 
-			if (isset($userid)) {
+			if (isset($username)) {
 				// Tried to log in and failed
 				echo "Could not log you in";
 			}

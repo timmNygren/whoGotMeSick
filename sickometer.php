@@ -18,8 +18,8 @@
 </head>
 <body id="body">
 	<article class="top">
-		<h1>whogotmesick.com</h1>
-		<div id='logout_button' onclick="onLogoutClicked();"></div>
+		<div id="logo"></div>
+		<div id="logout_button" onclick="onLogoutClicked();"></div>
 		<div id="home_button" onclick="onHomeClicked();"></div>
 	</article>
 	<?php
