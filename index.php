@@ -1,7 +1,7 @@
 <?php
 	session_start();
 
-	include('dbconnect.php');
+	include('dbcontrol.php');
 
 	if (isset($_GET)) {
 		if (empty($_GET['searchTerm'])) {

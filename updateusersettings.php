@@ -1,7 +1,7 @@
 <?php
 
 	session_start();
-	include('dbconnect.php');
+	include('dbcontrol.php');
 
 	$db = @new mysqli($db_server, $db_user_name, $db_password, $db_name);
 	if (mysqli_connect_errno()) {
@@ -35,7 +35,7 @@
 		$username = $_POST['username'];
 		$previousUsername = $_SESSION['valid_user'];
 		
-		$update_user_query = "update users set username=? where username=?;";
+		$update_user_query = "update users set username=? where username=?";
 		$stmt = $db->prepare($update_user_query);
 		$stmt->bind_param("ss", $username, $previousUsername);
 		$stmt->execute();
@@ -66,7 +66,7 @@
 		if ( ($_POST['newpassword'] == $_POST['confirmpassword']) && ($_POST['oldpassword'] == $confirm_password['password']) ) {
 			$newpass = $_POST['newpassword'];
 			$usertoupdate = $_SESSION['valid_user'];
-			$update_password_query = "update users set password=? where username=?;";
+			$update_password_query = "update users set password=? where username=?";
 			$stmt = $db->prepare($update_password_query);
 			$stmt->bind_param("ss", $newpass, $usertoupdate);
 

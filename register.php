@@ -4,7 +4,7 @@
 	if (!empty($_POST)) {
 		if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['passconfirm'])) {
 
-			include('dbconnect.php');
+			include('dbcontrol.php');
 
 			$new_user_query = "insert into users(username, password, settings) values(?, ?, ?);";
 			$stmt = $db->prepare($new_user_query);

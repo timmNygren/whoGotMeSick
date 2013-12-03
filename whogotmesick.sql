@@ -16,7 +16,7 @@ create table reports (
 		id int unsigned not null AUTO_INCREMENT primary key,
 		user_id int not null,
 		zip_code int not null,
-		symptoms blob not null,
+		symptoms char(9) not null,
 		note char(255),
 		date timestamp not null);
 
@@ -26,8 +26,11 @@ insert into users(username, password, settings, date_joined)
 			("abodnar", "superpassword", "00", NOW()),
 			("testUser", "testPassword", "00", NOW());
 
-insert into reports(user_id, location_id, symptoms, note, date)
-	values(1, 2, "111", NULL, NOW()),
-		  (2, 1, "101", "This cold kicked my butt!", NOW()),
-		  (3, 4, "000", "Not too bad of a cold", NOW()),
-		  (4, 3, "000", "Super bad cold, I had no symptoms", NOW());
+insert into reports(user_id, zip_code, symptoms, note, date)
+	values(1, 80401, "111000000", NULL, NOW()),
+	  	  (2, 80401, "101000000", "This cold kicked my butt!", NOW()),
+	      (2, 80401, "101000000", "This cold kicked my butt!", NOW()),
+	      (2, 80401, "101000000", "This cold kicked my butt!", NOW()),
+	      (2, 80401, "101000000", "This cold kicked my butt!", NOW()),
+		  (3, 80401, "000000000", "Not too bad of a cold", NOW()),
+		  (4, 80401, "000000000", "Super bad cold, I had no symptoms", NOW());
