@@ -139,7 +139,6 @@
 			$severity = $total_severity / $total_reports;
 		}
 		$percent = ($severity + $frequency) / 2;
-		echo "Severity: ".$severity." Frequency: ".$frequency." Percent: ".$percent;
 		echo "<script>updateArrow(".$percent.");</script>";
 		echo "<div class='content'>";
 		echo "<span class='section_header'><h1>Sickometer metrics</h1></span>";
