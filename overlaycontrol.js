@@ -70,7 +70,7 @@ function showRegisterOverlay() {
 				</tr>\
 				<tr>\
 					<td align="center" colspan="2">\
-						<input class="form_submit" type="submit" value="Register" pattern="\d+">\
+						<input class="form_submit" type="submit" value="Register">\
 					</td>\
 				</tr>\
 			</table>\
@@ -94,6 +94,19 @@ function showRegisterErrorText(error) {
 		console.log("Showing error text, this means that view is created");
 		$('<span id="name_taken">Name already in use</span>').appendTo($('#register_overlay'));
 	}
+}
+
+function showLoginErrorText(error) {
+	if (login_overlay_created == 0) {
+		showLoginErrorText(error);
+	}
+	if (typeof(error) === 'undefined') {
+		error = "ok";
+	}
+	else if (error === "invalid_credentials") {
+
+	}
+	else if ()
 }
 
 function showReportOverlay() {

@@ -66,9 +66,7 @@
 	<?php
 		if (isset($_SESSION['valid_user'])) {
 		
-			echo "<div id='overview_button'>";
-			echo "<a href='overview.php'>Overview</a>";
-			echo "</div>";
+			echo "<div id='overview_button' onClick='onOverviewClicked();'></div>";
 			// Button for the account page link
 			
 			echo "<div id='account_button' onClick='onAccountClicked();'></div>";
@@ -130,7 +128,7 @@
 		$result = $db->query($search_query);
 		// echo $search_query;
 
-		if ($result->num_rows == 0) {
+		if (empty($result)) {
 			echo "<h1>There are no sicknesses in this area at this point in time</h1><br>";
 		} else {
 			while($row = mysqli_fetch_array($result)){
