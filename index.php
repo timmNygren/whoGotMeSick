@@ -30,7 +30,8 @@
 		if (isset($_SESSION['register_status'])) {
 			if ($_SESSION['register_status'] != "success") {
 				echo '<script>';
-				echo 'showRegisterOverlay("'.$_SESSION['register_status'].'");';
+				echo 'showRegisterOverlay();';
+				echo 'showRegisterErrorText("'.$_SESSION['register_status'].'");';
 				echo '</script>';
 			} else {
 				echo 'Successfully created user';
@@ -101,7 +102,7 @@
 
 		$result = $db->query($search_query);
 		// echo $search_query;
-		if ($result->num_rows == 0) {
+		if (empty($result)) {
 			echo "<h1>There are no sicknesses in this area</h1><br>";
 		} else {
 			while($row = mysqli_fetch_array($result)){
