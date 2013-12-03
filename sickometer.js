@@ -43,7 +43,9 @@ function drawArrow(ctx,percent,radius,x,y) {
 	ctx.restore();
 }
 
-fillArc(ctx, canvas.width);
-drawArrow(ctx,66,canvas.width/2,canvas.width/2,2*canvas.width/3);
+function updateArrow(percent) {
+	fillArc(ctx, canvas.width);
+	drawArrow(ctx,percent,canvas.width/2,canvas.width/2,2*canvas.width/3);
+}
 
 console.log("tacos")

@@ -118,6 +118,8 @@
 			$row = $reports_array->fetch_assoc();
 			$total_severity = $total_severity + getSeverityForSymptoms($row['symptoms']);
 		}
+		$percent = $total_severity + $total_reports / 2;
+		echo "<script>updateArrow(".$percent.");</script>";
 		echo "<div>";
 		echo "<span class='section_header'><h1>Sickometer metrics</h1></span>";
 		echo "<p>Frequency</p><br>";
