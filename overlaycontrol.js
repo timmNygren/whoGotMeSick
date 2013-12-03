@@ -48,12 +48,12 @@ function showRegisterOverlay(error) {
 	if (typeof(error) === 'undefined') {
 		error = "ok";
 	}
-	// alert("Error is " + error);
-	if (error === "invalid_name") {
-		alert("Name taken");
-	}
 
 	console.log("Showing Register Overlay");
+	if (error === "invalid_name") {
+		alert("In error check");
+		$('#name_taken').css("display", "");
+	}
 	if (register_overlay_created == 1) {
 		$('#register_wrapper').css("display", "");
 		return;
@@ -65,7 +65,8 @@ function showRegisterOverlay(error) {
 				<th><h2>Register</h2></th>\
 				<tr>\
 					<td class="form_label">Username:</td>\
-					<td><input class="form_field" type="text" name="username" autocomplete="off" required></td>\
+					<td><input class="form_field" type="text" name="username" autocomplete="off" required>\
+					<span style="display:none" id="name_taken">Name already in use</span></td>\
 				</tr>\
 				<tr>\
 					<td class="form_label">Password:</td>\
