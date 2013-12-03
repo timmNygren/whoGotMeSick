@@ -29,7 +29,7 @@
 
 .content {
 	width: 95%;
-	background-color: #FFF;
+	background-color: #BEDEEB;
 	margin-left: auto;
 	margin-right: auto;
 	border-radius: 10px;
@@ -45,7 +45,18 @@
 	border: 1px solid #000;
 }
 
-#candiv {
+#sickometer {
+	padding-left: 0;
+	padding-right: 0;
 	margin-left: auto;
 	margin-right: auto;
+	display: block;
+	width: 400px;
+}
+
+.center {
+	margin-right: auto;
+	margin-left: auto;
+	display: block;
+	width: 400px;
 }

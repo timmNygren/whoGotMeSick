@@ -1,5 +1,5 @@
 //jQuery would be nice.
-var canvas = document.getElementById('canvas');
+var canvas = document.getElementById('sickometer');
 var ctx=canvas.getContext("2d");
 ctx.fillStyle="white";
 //ctx.fillRect(0,0,canvas.width,canvas.height);
@@ -58,16 +58,18 @@ function drawSlider(ctx, percent, width, height){
 	ctx.fillRect(pos - thick/2,0,thick, height);
 }
 
-
-$( document ).ready(function() {
+function updateFrequencySlider(percent) {
 	var fcanvas = document.getElementById('freq_canvas');
-	var scanvas = document.getElementById('sev_canvas');
-
 	var fctx=fcanvas.getContext("2d");
-	var sctx=scanvas.getContext("2d");
-
 	var h = fcanvas.height;
 	var w = fcanvas.width;
-	drawSlider(fctx, 20, w, h)
-	drawSlider(sctx, 20, w, h)
-});
+	drawSlider(fctx, percent, w, h);
+}
+
+function updateSeveritySlider(percent) {
+	var scanvas = document.getElementById('sev_canvas');
+	var sctx=scanvas.getContext("2d");
+	var h = scanvas.height;
+	var w = scanvas.width;
+	drawSlider(sctx, percent, w, h);
+}

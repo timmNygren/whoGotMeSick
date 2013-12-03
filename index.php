@@ -66,7 +66,11 @@
 	<?php
 		if (isset($_SESSION['valid_user'])) {
 		
+			echo "<div id='overview_button'>";
+			echo "<a href='overview.php'>Overview</a>";
+			echo "</div>";
 			// Button for the account page link
+			
 			echo "<div id='account_button' onClick='onAccountClicked();'></div>";
 
 			// Button for the report page link
@@ -98,18 +102,6 @@
 		</form>
 	</article>
 	<?php
-	/*
-		<li><input type="checkbox" name="symptom1" value="1" /><label for="text1">Fever</label></li>
-				<li><input type="checkbox" name="symptom2" value="1" /><label for="text2">Cough</label></li>
-				<li><input type="checkbox" name="symptom3" value="1" /><label for="text3">Stuffiness</label></li>
-				<li><input type="checkbox" name="symptom4" value="1" /><label for="text4">Aches</label></li>
-				<li><input type="checkbox" name="symptom5" value="1" /><label for="text5">Chills</label></li>
-				<li><input type="checkbox" name="symptom6" value="1" /><label for="text6">Fatigue</label></li>
-				<li><input type="checkbox" name="symptom7" value="1" /><label for="text7">Nausea/Vomiting</label></li>
-				<li><input type="checkbox" name="symptom8" value="1" /><label for="text8">Diarrhea</label></li>
-				<li><input type="checkbox" name="symptom9" value="1" /><label for="text9">Other</label></li>
-	*/
-
 	
 		function parseSymptoms($string) {
 			$symptoms = array(

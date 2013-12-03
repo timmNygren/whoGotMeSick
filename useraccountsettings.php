@@ -94,9 +94,9 @@
 		<input type="submit">
 		</form>
 	</div>
-	<div id='candiv'>
+	<div class='content'>
 		<span class='section_header'><h1>Sickometer</h1></span>
-		<canvas id="canvas" width="400" height="400"></canvas>
+		<canvas id="sickometer" width="400" height="400"></canvas>
 		<!-- Loaded after canvas so the element is populated -->
 		<script src="sickometer.js"></script>
 	</div>
@@ -108,12 +108,17 @@
 		}
 		$get_user_reports_query = "select * from reports where user_id=".$_SESSION['user_id'].";";
 		$reports_array = $db->query($get_user_reports_query);
-		$get_user_join_date_query = "select UNIX_TIMESTAMP(date_joined) as time from users where id=".$_SESSION['user_id'].";";
+		$get_user_join_date_query = "select DATEDIFF(date_joined, NOW()) as time from users where id=".$_SESSION['user_id'].";";
 		$join_date_array = $db->query($get_user_join_date_query);
 		$joined = $join_date_array->fetch_assoc();
-		echo $joined['time'];
-
+		$days_since_join = $joined['time'];
 		$total_reports = $reports_array->num_rows;
+		if ($days_since_join == 0) {
+			$frequency = 0;
+		}
+		else {
+			$frequency = $total_reports / $days_since_join / 7;
+		}
 		$total_severity = 0;
 		for ($i=0; $i<$total_reports; $i++) {
 			$row = $reports_array->fetch_assoc();
@@ -121,15 +126,14 @@
 		}
 		$percent = $total_severity + $total_reports / 2;
 		echo "<script>updateArrow(".$percent.");</script>";
-		echo "<div>";
+		echo "<div class='content'>";
 		echo "<span class='section_header'><h1>Sickometer metrics</h1></span>";
-		echo "<p>Frequency</p><br>";
-		echo "<canvas id='freq_canvas' class='c-slider' width='400' height='25'></canvas><br>";
-		echo "<input type='range' name='stuff' min='1' max='10' value='".$total_reports."'><br>";
-		echo "<p>Severity</p><br>";
-		echo "<canvas id='sev_canvas' class='c-slider' width='400' height='25'></canvas><br>";
-		echo "<input type='range' name='stuff' min='1' max='10' value='".$total_severity."'><br>";
+		echo "<p>Frequency</p>";
+		echo "<div class='center'><canvas id='freq_canvas' class='c-slider' width='400' height='50'></canvas></div><br>";
+		echo "<p>Severity</p>";
+		echo "<div class='center'><canvas id='sev_canvas' class='c-slider' width='400' height='50'></canvas></div><br>";
 		echo "</div>";
+		echo "<script>updateFrequencySlider(".$frequency."); updateSeveritySlider(".$total_severity.");</script>";
 	?>
 
 </body>
