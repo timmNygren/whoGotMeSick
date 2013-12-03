@@ -1,7 +1,4 @@
-create database team17_database;
 use team17_database;
-
-grant all on *.* to 'team17'@'localhost' identified by 'rhubarb';
 
 drop table if exists users, reports;
 
