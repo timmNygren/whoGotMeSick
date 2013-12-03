@@ -1,5 +1,5 @@
 //jQuery would be nice.
-var canvas = document.getElementById('canvas');
+var canvas = document.getElementById('sickometer');
 var ctx=canvas.getContext("2d");
 ctx.fillStyle="white";
 //ctx.fillRect(0,0,canvas.width,canvas.height);

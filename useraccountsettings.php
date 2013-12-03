@@ -94,9 +94,9 @@
 		<input type="submit">
 		</form>
 	</div>
-	<div id='candiv'>
+	<div class='content'>
 		<span class='section_header'><h1>Sickometer</h1></span>
-		<canvas id="canvas" width="400" height="400"></canvas>
+		<canvas id="sickometer" width="400" height="400"></canvas>
 		<!-- Loaded after canvas so the element is populated -->
 		<script src="sickometer.js"></script>
 	</div>
@@ -126,12 +126,12 @@
 		}
 		$percent = $total_severity + $total_reports / 2;
 		echo "<script>updateArrow(".$percent.");</script>";
-		echo "<div>";
+		echo "<div class='content'>";
 		echo "<span class='section_header'><h1>Sickometer metrics</h1></span>";
-		echo "<p>Frequency</p><br>";
-		echo "<canvas id='freq_canvas' class='c-slider' width='400' height='25'></canvas><br>";
-		echo "<p>Severity</p><br>";
-		echo "<canvas id='sev_canvas' class='c-slider' width='400' height='25'></canvas><br>";
+		echo "<p>Frequency</p>";
+		echo "<div class='center'><canvas id='freq_canvas' class='c-slider' width='400' height='50'></canvas></div><br>";
+		echo "<p>Severity</p>";
+		echo "<div class='center'><canvas id='sev_canvas' class='c-slider' width='400' height='50'></canvas></div><br>";
 		echo "</div>";
 		echo "<script>updateFrequencySlider(".$frequency."); updateSeveritySlider(".$total_severity.");</script>";
 	?>
