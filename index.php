@@ -59,6 +59,7 @@
 			}
 			unset($_SESSION['register_status']);
 		}
+		include('indexpagetitlebar.php');
 	?>
 	<article class="top">
 		<div id="logo"></div>
