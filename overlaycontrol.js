@@ -106,21 +106,21 @@ function showReportOverlay() {
 		<div id="report_wrapper">\
 			<form action="postreport.php" method="post" id="userform">\
 				<table id="report_overlay">\
-					<th><h1>Submit Report</h1></th>\
+					<th colspan="2"><h1>Submit Report</h1></th>\
 					<tr>\
-						<td><input type="checkbox" name="symptom1" value="1" /><label for="text1">Fever</label></td>\
-						<td><input type="checkbox" name="symptom2" value="1" /><label for="text2">Cough</label></td>\
-						<td><input type="checkbox" name="symptom3" value="1" /><label for="text3">Stuffiness</label></td>\
+						<td width="33%"><input type="checkbox" name="symptom1" value="1" /><label for="text1">Fever</label></td>\
+						<td width="33%"><input type="checkbox" name="symptom2" value="1" /><label for="text2">Cough</label></td>\
+						<td width="33%"><input type="checkbox" name="symptom3" value="1" /><label for="text3">Stuffiness</label></td>\
 					</tr>\
 					<tr>\
-						<td><input type="checkbox" name="symptom4" value="1" /><label for="text4">Aches</label></td>\
-						<td><input type="checkbox" name="symptom5" value="1" /><label for="text5">Chills</label></td>\
-						<td><input type="checkbox" name="symptom6" value="1" /><label for="text6">Fatigue</label></td>\
+						<td width="33%"><input type="checkbox" name="symptom4" value="1" /><label for="text4">Aches</label></td>\
+						<td width="33%"><input type="checkbox" name="symptom5" value="1" /><label for="text5">Chills</label></td>\
+						<td width="33%"><input type="checkbox" name="symptom6" value="1" /><label for="text6">Fatigue</label></td>\
 					</tr>\
 					<tr>\
-						<td><input type="checkbox" name="symptom7" value="1" /><label for="text7">Nausea/Vomiting</label></td>\
-						<td><input type="checkbox" name="symptom8" value="1" /><label for="text8">Diarrhea</label></td>\
-						<td><input type="checkbox" name="symptom9" value="1" /><label for="text9">Other</label></td>\
+						<td width="33%"><input type="checkbox" name="symptom7" value="1" /><label for="text7">Nausea/Vomiting</label></td>\
+						<td width="33%"><input type="checkbox" name="symptom8" value="1" /><label for="text8">Diarrhea</label></td>\
+						<td width="33%"><input type="checkbox" name="symptom9" value="1" /><label for="text9">Other</label></td>\
 					</tr>\
 					<tr>\
 					 	<td colspan="3">Zip Code: <input type="text" name="zip"  placeholder="e.g. 80401" autocomplete="off" required>*</td>\
@@ -130,7 +130,7 @@ function showReportOverlay() {
 					</tr>\
 					<tr>\
 						<td colspan="2"><input type="submit" value="Submit"></td>\
-						<td>* are required</td>\
+						<td>* required</td>\
 					</tr>\
 				</table>\
 			</form>\
