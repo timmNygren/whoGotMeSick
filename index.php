@@ -149,7 +149,7 @@
 			while($row = mysqli_fetch_array($result)){
 				$timestamp = strtotime($row['report_date']);
 				echo "<article class='main'>";
-				if ($row['settings'] == "1") {
+				if ($row['settings'] == "0") {
 					echo "<h1><b>User</b>: Anonymous</h1>";
 				} else {
 					echo "<h1><b>User</b>: ". $row['username'] ."</h1>";	
