@@ -35,7 +35,7 @@
 					unset($_SESSION['name_change']);
 				}
 			?>
-			New user name: <input type="text" name="username"><br>
+			New user name: <input type="text" name="username" autocomplete="off"><br>
 			<input type="submit">
 		</form>
 	</div>
