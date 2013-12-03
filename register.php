@@ -19,7 +19,7 @@
 				exit();
 			}
 
-			include('dbconnect.php');
+			include('dbcontrol.php');
 
 			$check_user_query = "select username from users where username=\"".$username."\";";
 

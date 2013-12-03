@@ -16,7 +16,7 @@ create table reports (
 		id int unsigned not null AUTO_INCREMENT primary key,
 		user_id int not null,
 		zip_code int not null,
-		symptoms blob not null,
+		symptoms char(9) not null,
 		note text,
 		date timestamp not null);
 

@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	include("dbconnect.php");
+	include("dbcontrol.php");
 ?>
 
 <html>
@@ -100,14 +100,33 @@
 		<!-- Loaded after canvas so the element is populated -->
 		<script src="sickometer.js"></script>
 	</div>
-	<div>
-		<span class='section_header'><h1>Sickometer metrics</h1></span>
-		<p>Frequency</p><br>
-		<canvas id="freq_canvas" class="c-slider" width="400" height="25"></canvas><br>
-		<p>Severity</p><br>
-		<canvas id="sev_canvas" class="c-slider" width="400" height="25"></canvas><br>
-		<p>Duration</p><br>
-		<canvas id="dur_canvas" class="c-slider" width="400" height="25"></canvas><br>
-	</div>
+
+	<?php
+
+		function getSeverityForSymptoms($symptoms) {
+			return 1;
+		}
+		$get_user_reports_query = "select * from reports where user_id=".$_SESSION['user_id'].";";
+		$reports_array = $db->query($get_user_reports_query);
+		$get_user_join_date_query = "select UNIX_TIMESTAMP(date_joined) as time from users where id=".$_SESSION['user_id'].";";
+		$join_date_array = $db->query($get_user_join_date_query);
+		$joined = $join_date_array->fetch_assoc();
+		echo $joined['time'];
+
+		$total_reports = $reports_array->num_rows;
+		$total_severity = 0;
+		for ($i=0; $i<$total_reports; $i++) {
+			$row = $reports_array->fetch_assoc();
+			$total_severity = $total_severity + getSeverityForSymptoms($row['symptoms']);
+		}
+		echo "<div>";
+		echo "<span class='section_header'><h1>Sickometer metrics</h1></span>";
+		echo "<p>Frequency</p><br>";
+		echo "<input type='range' name='stuff' min='1' max='10' value='".$total_reports."'><br>";
+		echo "<p>Severity</p><br>";
+		echo "<input type='range' name='stuff' min='1' max='10' value='".$total_severity."'><br>";
+		echo "</div>";
+	?>
+
 </body>
 </html>	
