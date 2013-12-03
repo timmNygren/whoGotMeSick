@@ -15,7 +15,7 @@ function showLoginOverlay() {
 				<th><h2>Login</h2></th>\
 				<tr>\
 					<td class="form_label">Username:</td>\
-					<td><input class="form_field" type="text" name="username"></td>\
+					<td><input class="form_field" type="text" name="username" autocomplete="off"></td>\
 				</tr>\
 				<tr>\
 					<td class="form_label">Password:</td>\
@@ -36,7 +36,23 @@ function showLoginOverlay() {
 	login_overlay_created = 1;
 }
 
-function showRegisterOverlay() {
+function testFunction(a) {
+	if (typeof(a) === 'undefined') {
+		a = 10;
+	}
+	alert("A" + a);
+}
+
+function showRegisterOverlay(error) {
+
+	if (typeof(error) === 'undefined') {
+		error = "ok";
+	}
+	// alert("Error is " + error);
+	if (error === "invalid_name") {
+		alert("Name taken");
+	}
+
 	console.log("Showing Register Overlay");
 	if (register_overlay_created == 1) {
 		$('#register_wrapper').css("display", "");
@@ -49,15 +65,15 @@ function showRegisterOverlay() {
 				<th><h2>Register</h2></th>\
 				<tr>\
 					<td class="form_label">Username:</td>\
-					<td><input class="form_field" type="text" name="username"></td>\
+					<td><input class="form_field" type="text" name="username" autocomplete="off" required></td>\
 				</tr>\
 				<tr>\
 					<td class="form_label">Password:</td>\
-					<td><input class="form_field" type="password" name="password"></td>\
+					<td><input class="form_field" type="password" name="password" required></td>\
 				</tr>\
 				<tr>\
 					<td class="form_label">Confirm:</td>\
-					<td><input class="form_field" type="password" name="passconfirm"></td>\
+					<td><input class="form_field" type="password" name="passconfirm" required></td>\
 				</tr>\
 				<tr>\
 					<td align="center" colspan="2">\
@@ -98,13 +114,14 @@ function showReportOverlay() {
 						<td><input type="checkbox" name="symptom9" value="1" /><label for="text9">Other</label></td>\
 					</tr>\
 					<tr>\
-					 	<td colspan="3"><input type="text" name="zip" value = "" pattern="\d\d\d\d\d" placeholder="e.g. 80401"></td>\
-					</tr>\
-					<tr>\
-						<td colspan="3"><input type="submit" value="Submit"></td>\
+					 	<td colspan="3">Zip Code: <input type="text" name="zip" pattern="\d\d\d\d\d" placeholder="e.g. 80401" autocomplete="off" required>*</td>\
 					</tr>\
 					<tr>\
 						<td colspan="3"><textarea placeholder="Additional notes..." rows="4" cols="50" name="comment" form="userform"></textarea></td>\
+					</tr>\
+					<tr>\
+						<td colspan="2"><input type="submit" value="Submit"></td>\
+						<td>* are required</td>\
 					</tr>\
 				</table>\
 			</form>\
