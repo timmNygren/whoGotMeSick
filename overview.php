@@ -32,19 +32,20 @@ $result = $db->query($set_query);
 
 echo "<div>";
 echo "<table  class='overview'>      ";
-echo "<tr>                    ";
-echo "<th>Zip Code</th>       ";
-echo "<th>Total Reports</th>  ";
-echo "<th>Fever</th>          ";
-echo "<th>Cough</th>          ";
-echo "<th>Stuffiness</th>     ";
-echo "<th>Aches</th>          ";
-echo "<th>Chills</th>         ";
-echo "<th>Fatigue</th>        ";
+echo "<caption>Zipcode Data</caption>";
+echo "<tr>";
+echo "<th>Zip Code</th>";
+echo "<th>Total Reports</th>";
+echo "<th>Fever</th>";
+echo "<th>Cough</th>";
+echo "<th>Stuffiness</th>";
+echo "<th>Aches</th>";
+echo "<th>Chills</th>";
+echo "<th>Fatigue</th>";
 echo "<th>Nausea/Vomiting</th>";
-echo "<th>Diarrhea</th>       ";
-echo "<th>Other</th>          ";
-echo "</tr>                   ";
+echo "<th>Diarrhea</th>";
+echo "<th>Other</th>";
+echo "</tr>";
 
 while ($row = mysqli_fetch_array($result, MYSQL_NUM)) {
 	echo "<tr>";
@@ -73,6 +74,9 @@ echo "</table>";
 echo "</div>";
 
 ?>
+
+<div>
+</div>
 
 </body>
 </html>	
