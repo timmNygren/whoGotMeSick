@@ -76,14 +76,10 @@
 	}
 	else {
 
-		if (!empty($_POST['showName']) && !empty($_POST['showRate'])) {
-			$settings = "11";
-		} elseif (!empty($_POST['showName']) && empty($_POST['showRate'])) {
-			$settings = "10";
-		} elseif (empty($_POST['showName']) && !empty($_POST['showRate'])) {
-			$settings = "01";
+		if ( !empty($_POST['showName']) ) {
+			$settings = "1";
 		} else {
-			$settings = "00";
+			$settings = "0";
 		}
 
 		$_SESSION['settings_change'] = "success";

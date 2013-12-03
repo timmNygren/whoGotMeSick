@@ -13,21 +13,56 @@
 			$search = $_GET['searchTerm'];		
 		}
 
+		// Set default previous time to 2 weeks ago from today
 		$defaultPreviousTime = mktime(12, 0, 0, date('m'), date('d')-14, date('Y'));
-
+		$regex = "/[0-9]{4}\/[0-9]{2}\/[0-9]{2}/";
+		// Checking for previous date
 		if (empty($_GET['d1'])) {
+			// Use default date if empty
 			$previousDate = date('Y-m-d', $defaultPreviousTime);
 		} else {
+			// Grab date from d1
 			$previousDate = $_GET['d1'];
 		}
 
+		// Validate d1
+		if (!preg_match($regex, $previousDate)) {
+			$previousDate = date('Y-m-d', $defaultPreviousTime);
+		} else {
+			$date1 = date_parse($previousDate);
+
+			if ( !checkdate( $date1['month'], $date1['day'], $date1['year'] ) ) {
+				// Not a valid date, set to default
+				$previousDate = date('Y-m-d', $defaultPreviousTime);
+			}
+		}
+	
+
+		// Check secondary, later date
 		if (empty($_GET['d2'])) {
+			// No date supplied
 			$maxDate = date('Y-m-d');
 		} else {
+			// Grab date from d2
 			$maxDate = $_GET['d2'];
 		}
 
+		// Validate d2
+		if (!preg_match($regex, $maxDate)) {
+			$maxDate = date('Y-m-d');
+		} else {
+			$date2 = date_parse($maxDate);
+
+			if ( !checkdate( $date2['month'], $date2['day'], $date2['year'] ) ) {
+				// Not a valid date, set to default
+				echo "Not a valid date";
+				$maxDate = date('Y-m-d');
+			}			
+		}
+
+
 		if (strtotime($previousDate) > strtotime($maxDate)) {
+			// Check for previous date being after max date
 			$previousDate = date('Y-m-d', $defaultPreviousTime);
 			$maxDate = $maxDate;
 		}
@@ -69,7 +104,7 @@
 			<?php
 				echo 'From: <input type="date" name="d1" value="'.$previousDate.'" max="'.$maxDate.'">  To: <input type="date" name="d2" value="'.$maxDate.'" max="'.date('Y-m-d').'">';
 			?>
-			<input type="submit" name="Search" id="search_button">
+			<input type="submit" value="Search" id="search_button">
 			</h3>
 		</form>
 	</div>
@@ -107,7 +142,11 @@
 			while($row = mysqli_fetch_array($result)){
 				$timestamp = strtotime($row['report_date']);
 				echo "<article class='main'>";
-				echo "<h1><b>User</b>: ". $row['username'] ."</h1>";
+				if ($row['settings'] == "1") {
+					echo "<h1><b>User</b>: Anonymous</h1>";
+				} else {
+					echo "<h1><b>User</b>: ". $row['username'] ."</h1>";	
+				}
 				echo "<div class='symptoms'><b>Symptoms</b>: ". parseSymptoms($row['symptoms']) ."</div>";
 				echo "<div class='notes'><b>Notes</b>: ". $row['note'] ."</div>";
 				echo "<p class='top_right'><b>Date</b>: ". date("jS F o", $timestamp) ."</p>";

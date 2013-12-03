@@ -21,10 +21,10 @@ create table reports (
 		report_date DATE not null);
 
 insert into users(username, password, settings, date_joined)
-	values("tnygren", "drowssap", "00", NOW()),
-			("hlang", "password", "00", NOW()),
-			("abodnar", "superpassword", "00", NOW()),
-			("testUser", "testPassword", "00", NOW());
+	values("tnygren", "drowssap", "0", NOW()),
+			("hlang", "password", "0", NOW()),
+			("abodnar", "superpassword", "0", NOW()),
+			("testUser", "testPassword", "0", NOW());
 
 insert into reports(user_id, zip_code, symptoms, note, report_date)
 	values(1, 81637, "000000000", NULL, CURDATE()),
