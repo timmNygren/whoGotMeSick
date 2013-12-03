@@ -1,8 +1,6 @@
 What remains to be done:
-	- Color this bitch (All)
 	- Sick-O-Meter
-	- Style reports overlay
 	- Date filtering (Timm)
 	- Reflection paper (All)
 	- Analytics (Adam)
-	- Error text for login
+	- Error text for login (Hunter)
