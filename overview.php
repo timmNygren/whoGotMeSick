@@ -15,16 +15,6 @@
 include('auxpagetitlebar.php');
 include('dbcontrol.php');
 
-function totalSymptoms($string) {
-	$len = strlen($string);
-	$list = [];
-	for($i=0; $i < $len; $i++){
-		$key = substr($string, $i, 1);
-		$list[$i] = $key;
-	}
-	return $list;
-}
-
 $set_query = "select zip_code, count(zip_code) from reports group by zip_code;";
 $result = $db->query($set_query);
 
