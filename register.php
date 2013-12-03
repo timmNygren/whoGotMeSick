@@ -35,7 +35,7 @@
 			$result->free();
 
 
-			$new_user_query = "insert into users(username, password, settings) values(?, ?, ?);";
+			$new_user_query = "insert into users(username, password, settings, date_joined) values(?, ?, ?, NOW());";
 			$stmt = $db->prepare($new_user_query);
 
 			$stmt->bind_param("sss", $username, $password, $settings);

@@ -21,7 +21,7 @@
 		echo 'Welcome '.$_SESSION['valid_user']."!";
 	?>
 	<div class="content">
-		<form action="change.php" method="post">
+		<form action="updateusersettings.php" method="post">
 			<span class='section_header'><h1>Change User Name</h1></span>
 			<?php
 				if (isset($_SESSION['name_change'])) {
@@ -40,7 +40,7 @@
 		</form>
 	</div>
 	<div class="content">
-		<form action="change.php" method="post">
+		<form action="updateusersettings.php" method="post">
 			<span class='section_header'><h1>Change Password</h1></span>
 			<?php
 				if (isset($_SESSION['password_change'])) {
@@ -87,7 +87,7 @@
 				$rateCheck = "unchecked";
 			}
 
-			echo "<form action='change.php' method='post'>";
+			echo "<form action='updateusersettings.php' method='post'>";
 			echo "<input type='checkbox' name='showName' ".$userCheck.">Show Username<br>";
 			echo "<input type='checkbox' name='showRate' ".$rateCheck.">Show Rating<br>";
 		?>
