@@ -78,7 +78,7 @@ function showRegisterOverlay(error) {
 				</tr>\
 				<tr>\
 					<td align="center" colspan="2">\
-						<input class="form_submit" type="submit" value="Register">\
+						<input class="form_submit" type="submit" value="Register" pattern="\d+">\
 					</td>\
 				</tr>\
 			</table>\
