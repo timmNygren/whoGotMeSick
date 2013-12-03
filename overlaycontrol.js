@@ -115,7 +115,7 @@ function showReportOverlay() {
 						<td><input type="checkbox" name="symptom9" value="1" /><label for="text9">Other</label></td>\
 					</tr>\
 					<tr>\
-					 	<td colspan="3">Zip Code: <input type="text" name="zip" pattern="\d\d\d\d\d" placeholder="e.g. 80401" autocomplete="off" required>*</td>\
+					 	<td colspan="3">Zip Code: <input type="text" name="zip"  placeholder="e.g. 80401" autocomplete="off" required>*</td>\
 					</tr>\
 					<tr>\
 						<td colspan="3"><textarea placeholder="Additional notes..." rows="4" cols="50" name="comment" form="userform"></textarea></td>\

@@ -29,7 +29,7 @@
 	$location = $_POST['zip'];
 
 
-	$stmt->bind_param("iisis", $_SESSION['user_id'], $location, $encoded, $comment);
+	$stmt->bind_param("iiss", $_SESSION['user_id'], $location, $encoded, $comment);
 	$stmt->execute();
 
 

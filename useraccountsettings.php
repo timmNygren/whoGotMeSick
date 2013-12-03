@@ -100,6 +100,7 @@
 		<!-- Loaded after canvas so the element is populated -->
 		<script src="sickometer.js"></script>
 	</div>
+
 	<?php
 
 		function getSeverityForSymptoms($symptoms) {
@@ -123,10 +124,13 @@
 		echo "<div>";
 		echo "<span class='section_header'><h1>Sickometer metrics</h1></span>";
 		echo "<p>Frequency</p><br>";
+		echo "<canvas id='freq_canvas' class='c-slider' width='400' height='25'></canvas><br>";
 		echo "<input type='range' name='stuff' min='1' max='10' value='".$total_reports."'><br>";
 		echo "<p>Severity</p><br>";
+		echo "<canvas id='sev_canvas' class='c-slider' width='400' height='25'></canvas><br>";
 		echo "<input type='range' name='stuff' min='1' max='10' value='".$total_severity."'><br>";
 		echo "</div>";
 	?>
+
 </body>
 </html>	
