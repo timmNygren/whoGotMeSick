@@ -92,12 +92,13 @@
 	</article>
 	<article class="search">
 		<form action="index.php" method="get">
-			<h3>Search
-			<input type="text" name="searchTerm" size="70%" placeholder="Zip code: e.g. 80401 (leave empty for all areas)" value="<?php echo $search; ?>" pattern="\d\d\d\d\d" style="height:30px">
+			<h3>
+			<input type="text" name="searchTerm" size="35%" placeholder="Zip code (leave empty for all areas)" value="<?php echo $search; ?>" pattern="\d\d\d\d\d" style="height:30px">
 			<?php
 				// $defaultPreviousTime = mktime(12, 0, 0, date('m'), date('d')-14, date('Y'));
 				echo 'From: <input type="date" name="d1" value="'.$previousDate.'" max="'.$maxDate.'">  To: <input type="date" name="d2" value="'.$maxDate.'" max="'.date('Y-m-d').'">';
 			?>
+			<input type="submit" name="Search" id="search_button">
 			</h3>
 		</form>
 	</article>
