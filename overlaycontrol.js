@@ -43,18 +43,11 @@ function testFunction(a) {
 	alert("A" + a);
 }
 
-function showRegisterOverlay(error) {
-
-	if (typeof(error) === 'undefined') {
-		error = "ok";
-	}
+function showRegisterOverlay() {
 
 	console.log("Showing Register Overlay");
-	if (error === "invalid_name") {
-		alert("In error check");
-		$('#name_taken').css("display", "");
-	}
 	if (register_overlay_created == 1) {
+		console.log("Skipping recreate");
 		$('#register_wrapper').css("display", "");
 		return;
 	}
@@ -66,7 +59,6 @@ function showRegisterOverlay(error) {
 				<tr>\
 					<td class="form_label">Username:</td>\
 					<td><input class="form_field" type="text" name="username" autocomplete="off" required>\
-					<span style="display:none" id="name_taken">Name already in use</span></td>\
 				</tr>\
 				<tr>\
 					<td class="form_label">Password:</td>\
@@ -85,7 +77,23 @@ function showRegisterOverlay(error) {
 		</form>\
 	</div>\
 		').appendTo(document.body);
+	console.log("Showing error text");
+
 	register_overlay_created = 1;
+}
+
+function showRegisterErrorText(error) {
+	console.log("In showRegisterErrorText");
+	if (register_overlay_created == 0) {
+		showRegisterErrorText(error);
+	}
+	if (typeof(error) === 'undefined') {
+		error = "ok";
+	}
+	else if (error === "invalid_name") {
+		console.log("Showing error text, this means that view is created");
+		$('<span id="name_taken">Name already in use</span>').appendTo($('#register_overlay'));
+	}
 }
 
 function showReportOverlay() {

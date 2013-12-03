@@ -30,7 +30,8 @@
 		if (isset($_SESSION['register_status'])) {
 			if ($_SESSION['register_status'] != "success") {
 				echo '<script>';
-				echo 'showRegisterOverlay("'.$_SESSION['register_status'].'");';
+				echo 'showRegisterOverlay();';
+				echo 'showRegisterErrorText("'.$_SESSION['register_status'].'");';
 				echo '</script>';
 			} else {
 				echo 'Successfully created user';
