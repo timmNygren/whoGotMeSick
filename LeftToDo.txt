@@ -1,10 +1,11 @@
 What remains to be done:
-	- Color this bitch
+	- Color this bitch (All)
 	- Sick-O-Meter
-	- Look and feel for account page
+		- Inputs populating (Hunter)
+		- Attach to meter (Hunter)
+	- Look and feel for account page (Hunter)
 	- Make a footer
 	- Generalize header and footer into php files
-	- Date filtering
-	- Reflection paper
-	- Thumb up / down buttons that only appear when the user is logged in
-	- Analytics
+	- Date filtering (Timm)
+	- Reflection paper (All)
+	- Analytics (Adam)
