@@ -10,7 +10,7 @@ function showLoginOverlay() {
 	}
 	$('\
 		<div id="login_wrapper">\
-		<form method="post" action="login.php?location=index.php">\
+		<form method="post" action="login.php">\
 			<table id="login_overlay">\
 				<th><h2>Login</h2></th>\
 				<tr>\
@@ -66,7 +66,7 @@ function showRegisterOverlay(error) {
 				<tr>\
 					<td class="form_label">Username:</td>\
 					<td><input class="form_field" type="text" name="username" autocomplete="off" required>\
-					<span style="display:none" id="name_taken">Name already in use</span></td>\
+					<span style="display:none;" id="name_taken">Name already in use</span></td>\
 				</tr>\
 				<tr>\
 					<td class="form_label">Password:</td>\

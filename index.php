@@ -8,7 +8,7 @@
 			$search_query = "select * from users, reports where user_id=users.id;";	
 		} 
 		else {
-			$search_query = "select * from users, reports where user_id=users.id and location_id=\"".$_GET['searchTerm']."\";";
+			$search_query = "select * from users, reports where user_id=users.id and zip_code=\"".$_GET['searchTerm']."\";";
 			unset($_GET);			
 		}
 
