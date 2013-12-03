@@ -2,7 +2,7 @@
 
 	session_start();
 	
-	include('dbconnect.php');
+	include('dbcontrol.php');
 	
 	$report_query = "insert into reports (user_id, zip_code, symptoms, note, date) values(?, ?, ?, ?, NOW())";
 	$stmt = $db->prepare($report_query);

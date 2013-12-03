@@ -6,7 +6,7 @@
 
 		if (isset($_POST['username']) && isset($_POST['password']) && !isset($_SESSION['valid_user'])) {
 
-			include('dbconnect.php');
+			include('dbcontrol.php');
 
 			// User has just tried to log in
 			$username = $_POST['username'];
