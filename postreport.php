@@ -4,7 +4,7 @@
 	
 	include('dbcontrol.php');
 	
-	$report_query = "insert into reports (user_id, zip_code, symptoms, note, date) values(?, ?, ?, ?, NOW())";
+	$report_query = "insert into reports (user_id, zip_code, symptoms, note, report_date) values(?, ?, ?, ?, CURDATE())";
 	$stmt = $db->prepare($report_query);
 
 	$encoded = "";

@@ -21,6 +21,8 @@
 				$_SESSION['valid_user'] = $username;
 				$_SESSION['user_id'] = $row['id'];
 
+			} else {
+				// username or password was incorrect
 			}
 
 			$db->close();

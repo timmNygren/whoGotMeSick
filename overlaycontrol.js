@@ -10,7 +10,7 @@ function showLoginOverlay() {
 	}
 	$('\
 		<div id="login_wrapper">\
-		<form method="post" action="login.php?location=index.php">\
+		<form method="post" action="login.php">\
 			<table id="login_overlay">\
 				<th><h2>Login</h2></th>\
 				<tr>\

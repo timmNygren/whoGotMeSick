@@ -1,17 +1,39 @@
 <?php
 	session_start();
-
+	date_default_timezone_set('America/Denver');
 	include('dbcontrol.php');
 
 	if (isset($_GET)) {
 		if (empty($_GET['searchTerm'])) {
-			$search_query = "select * from users, reports where user_id=users.id;";	
+			$search_query = "select * from users, reports where user_id=users.id ";	
+			$search = "";
 		} 
 		else {
-			$search_query = "select * from users, reports where user_id=users.id and location_id=\"".$_GET['searchTerm']."\";";
-			unset($_GET);			
+			$search_query = "select * from users, reports where user_id=users.id and zip_code=\"".$_GET['searchTerm']."\" ";
+			$search = $_GET['searchTerm'];
+			// unset($_POST['searchTerm']);			
 		}
 
+		$defaultPreviousTime = mktime(12, 0, 0, date('m'), date('d')-14, date('Y'));
+
+		if (empty($_GET['d1'])) {
+			$previousDate = date('Y-m-d', $defaultPreviousTime);
+		} else {
+			$previousDate = $_GET['d1'];
+		}
+
+		if (empty($_GET['d2'])) {
+			$maxDate = date('Y-m-d');
+		} else {
+			$maxDate = $_GET['d2'];
+		}
+
+		if (strtotime($previousDate) > strtotime($maxDate)) {
+			$previousDate = date('Y-m-d', $defaultPreviousTime);
+			$maxDate = $maxDate;
+		}
+
+		$search_query = $search_query.'and reports.report_date between "'.$previousDate.'" and "'.$maxDate.'" order by reports.report_date desc;';
 	} 
 
 ?>
@@ -69,7 +91,11 @@
 	<article class="search">
 		<form action="index.php" method="get">
 			<h3>Search
-			<input type="text" name="searchTerm" size="100%" placeholder="Enter a Zip code: e.g. 80401" pattern="\d\d\d\d\d" style="height:30px">
+			<input type="text" name="searchTerm" size="70%" placeholder="Zip code: e.g. 80401 (leave empty for all areas)" value="<?php echo $search; ?>" pattern="\d\d\d\d\d" style="height:30px">
+			<?php
+				// $defaultPreviousTime = mktime(12, 0, 0, date('m'), date('d')-14, date('Y'));
+				echo 'From: <input type="date" name="d1" value="'.$previousDate.'" max="'.$maxDate.'">  To: <input type="date" name="d2" value="'.$maxDate.'" max="'.date('Y-m-d').'">';
+			?>
 			</h3>
 		</form>
 	</article>
@@ -100,11 +126,14 @@
 
 		$result = $db->query($search_query);
 		// echo $search_query;
-		if (empty($result)) {
-			echo "<h1>There are no sicknesses in this area</h1><br>";
+
+		if ($result->num_rows == 0) {
+			echo "<h1>There are no sicknesses in this area at this point in time</h1><br>";
 		} else {
 			while($row = mysqli_fetch_array($result)){
-				$timestamp = strtotime($row['date']);
+				$timestamp = strtotime($row['report_date']);
+				// echo $timestamp."<br>";
+				// echo $row['date'];
 				echo "<article class='main'>";
 				echo "<h1><b>User</b>: ". $row['username'] ."</h1>";
 				echo "<div class='symptoms'><b>Symptoms</b>: ". parseSymptoms($row['symptoms']) ."</div>";
