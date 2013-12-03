@@ -34,6 +34,7 @@ function showLoginOverlay() {
 	</div>\
 	').appendTo(document.body);
 	login_overlay_created = 1;
+	console.log("Login overlay created");
 }
 
 function testFunction(a) {
@@ -77,7 +78,6 @@ function showRegisterOverlay() {
 		</form>\
 	</div>\
 		').appendTo(document.body);
-	console.log("Showing error text");
 
 	register_overlay_created = 1;
 }
@@ -91,8 +91,8 @@ function showRegisterErrorText(error) {
 		error = "ok";
 	}
 	else if (error === "invalid_name") {
-		console.log("Showing error text, this means that view is created");
-		$('<span id="name_taken">Name already in use</span>').appendTo($('#register_overlay'));
+		console.log("Register error: Used username");
+		$('<tr><td colspan="2">Name already in use</td></tr>').appendTo($('#register_overlay'));
 	}
 }
 
@@ -104,10 +104,8 @@ function showLoginErrorText(error) {
 		error = "ok";
 	}
 	else if (error === "invalid_credentials") {
-
-	}
-	else if (error === "user_not_exist") {
-		
+		console.log("Login error: Invalid");
+		$('<tr><td colspan="2">Username or password is incorrect</td></tr>').appendTo($('#login_overlay'));
 	}
 }
 

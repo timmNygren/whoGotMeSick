@@ -22,6 +22,7 @@
 				$_SESSION['user_id'] = $row['id'];
 
 			} else {
+				$_SESSION['login_status'] = "invalid_credentials";
 				// username or password was incorrect
 			}
 

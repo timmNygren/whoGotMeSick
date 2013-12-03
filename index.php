@@ -59,6 +59,13 @@
 			}
 			unset($_SESSION['register_status']);
 		}
+		if (isset($_SESSION['login_status'])) {
+			echo '<script>';
+			echo 'showLoginOverlay();';
+			echo 'showLoginErrorText("'.$_SESSION['login_status'].'");';
+			echo '</script>';
+			unset($_SESSION['login_status']);
+		}
 		include('indexpagetitlebar.php');
 	?>
 	</article>
