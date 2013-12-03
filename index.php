@@ -10,8 +10,7 @@
 		} 
 		else {
 			$search_query = "select * from users, reports where user_id=users.id and zip_code=\"".$_GET['searchTerm']."\" ";
-			$search = $_GET['searchTerm'];
-			// unset($_POST['searchTerm']);			
+			$search = $_GET['searchTerm'];		
 		}
 
 		$defaultPreviousTime = mktime(12, 0, 0, date('m'), date('d')-14, date('Y'));
@@ -88,18 +87,17 @@
 
 	?>
 	</article>
-	<article class="search">
+	<div class="search_area">
 		<form action="index.php" method="get">
 			<h3>
 			<input type="text" name="searchTerm" size="35%" placeholder="Zip code (leave empty for all areas)" value="<?php echo $search; ?>" pattern="\d\d\d\d\d" style="height:30px">
 			<?php
-				// $defaultPreviousTime = mktime(12, 0, 0, date('m'), date('d')-14, date('Y'));
 				echo 'From: <input type="date" name="d1" value="'.$previousDate.'" max="'.$maxDate.'">  To: <input type="date" name="d2" value="'.$maxDate.'" max="'.date('Y-m-d').'">';
 			?>
 			<input type="submit" name="Search" id="search_button">
 			</h3>
 		</form>
-	</article>
+	</div>
 	<?php
 	
 		function parseSymptoms($string) {
@@ -133,8 +131,6 @@
 		} else {
 			while($row = mysqli_fetch_array($result)){
 				$timestamp = strtotime($row['report_date']);
-				// echo $timestamp."<br>";
-				// echo $row['date'];
 				echo "<article class='main'>";
 				echo "<h1><b>User</b>: ". $row['username'] ."</h1>";
 				echo "<div class='symptoms'><b>Symptoms</b>: ". parseSymptoms($row['symptoms']) ."</div>";
