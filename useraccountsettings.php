@@ -69,23 +69,14 @@
 
 			$settings = mysqli_fetch_array($result);
 
-			if ($settings['settings'] == "11") {
+			if ($settings['settings'] == "1") {
 				$userCheck = "checked";
-				$rateCheck = "checked";
-			} elseif ($settings['settings'] == "10") {
-				$userCheck = "checked";
-				$rateCheck = "unchecked";
-			} elseif ($settings['settings'] == "01") {
-				$userCheck = "unchecked";
-				$rateCheck = "checked";
 			} else {
 				$userCheck = "unchecked";
-				$rateCheck = "unchecked";
 			}
 
 			echo "<form action='updateusersettings.php' method='post'>";
 			echo "<input type='checkbox' name='showName' ".$userCheck.">Show Username<br>";
-			echo "<input type='checkbox' name='showRate' ".$rateCheck.">Show Rating<br>";
 		?>
 		<input type="submit">
 		</form>
