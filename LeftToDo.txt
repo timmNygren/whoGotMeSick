@@ -1,6 +1,2 @@
 What remains to be done:
-	- Sick-O-Meter
-	- Date filtering (Timm)
 	- Reflection paper (All)
-	- Analytics (Adam)
-	- Error text for login (Hunter)
