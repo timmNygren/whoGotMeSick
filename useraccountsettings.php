@@ -12,12 +12,8 @@
 	<script src="handlebuttonpressed.js"></script>
 </head>
 <body id="body">
-	<article class="top">
-		<div id="logo"></div>
-		<div id="logout_button" onclick="onLogoutClicked();"></div>
-		<div id="home_button" onclick="onHomeClicked();"></div>
-	</article>
 	<?php
+		include('auxpagetitlebar.php');
 		echo 'Welcome '.$_SESSION['valid_user']."!";
 	?>
 	<div class="content">

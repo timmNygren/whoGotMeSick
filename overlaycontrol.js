@@ -106,7 +106,9 @@ function showLoginErrorText(error) {
 	else if (error === "invalid_credentials") {
 
 	}
-	else if ()
+	else if (error === "user_not_exist") {
+		
+	}
 }
 
 function showReportOverlay() {

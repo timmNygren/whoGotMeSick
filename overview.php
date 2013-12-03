@@ -1,3 +1,7 @@
+<?php
+	session_start();	
+?>
+
 <html>
 <head>
 	<title>Who Got Me Sick</title>&nbsp;
@@ -7,9 +11,8 @@
 	<script src="handlebuttonpressed.js"></script>
 </head>
 <body id="body">
-
 <?php
-
+include('auxpagetitlebar.php');
 include('dbcontrol.php');
 
 function totalSymptoms($string) {
