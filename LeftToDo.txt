@@ -1,15 +1,6 @@
 What remains to be done:
-	- Color this bitch (All)
 	- Sick-O-Meter
-		- Inputs populating (Hunter)
-		- Attach to meter (Hunter)
-	- Look and feel for account page (Hunter)
-	- Style reports overlay
-	- Make a footer
-	- Generalize header and footer into php files
 	- Date filtering (Timm)
 	- Reflection paper (All)
 	- Analytics (Adam)
-	- Clean up db access code (Hunter)
-	- Allow severity to be specified
-	- Error text for login
+	- Error text for login (Hunter)
