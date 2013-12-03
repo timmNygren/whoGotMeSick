@@ -8,6 +8,10 @@
 	margin-left: 15px;
 }
 
+caption {
+	font-size:300%;
+}
+
 #login_button,
 #logout_button {
 	position:absolute;
@@ -83,7 +87,6 @@ body {
 	margin:0px;padding:0px;
 	width:100%;
 	box-shadow: 10px 10px 5px #888888;
-	border:1px solid #000000;
 	
 	-moz-border-radius-bottomleft:0px;
 	-webkit-border-bottom-left-radius:0px;
@@ -132,7 +135,6 @@ body {
 	vertical-align:middle;
 	
 	
-	border:1px solid #000000;
 	border-width:0px 1px 1px 0px;
 	text-align:center;
 	padding:0px;

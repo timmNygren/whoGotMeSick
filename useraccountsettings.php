@@ -91,7 +91,27 @@
 	<?php
 
 		function getSeverityForSymptoms($symptoms) {
-			return 1;
+			$severity = 0;
+			$symptoms_key = array(
+				"0" =>  "Fever",
+				"1" =>  "Cough",
+				"2" =>  "Stuffiness",
+				"3" =>  "Aches",
+				"4" =>  "Chills",
+				"5" =>  "Fatigue",
+				"6" =>  "Nausea/Vomiting",
+				"7" =>  "Diarrhea",
+				"8" =>  "Other"
+			);
+			$len = strlen($symptoms);
+			$list = "";
+			for($i=0; $i < $len; $i++){
+				$key = substr($symptoms, $i, 1);
+				if($key == '1') {
+					$severity = $severity + 1; 
+				}
+			}
+			return $severity;
 		}
 		$get_user_reports_query = "select * from reports where user_id=".$_SESSION['user_id'].";";
 		$reports_array = $db->query($get_user_reports_query);
@@ -101,7 +121,7 @@
 		$days_since_join = $joined['time'];
 		$total_reports = $reports_array->num_rows;
 		if ($days_since_join == 0) {
-			$frequency = 0;
+			$frequency = 100;
 		}
 		else {
 			$frequency = $total_reports / $days_since_join / 7;
@@ -111,7 +131,10 @@
 			$row = $reports_array->fetch_assoc();
 			$total_severity = $total_severity + getSeverityForSymptoms($row['symptoms']);
 		}
-		$percent = $total_severity + $total_reports / 2;
+
+		$severity = $total_severity / $total_reports;
+		$percent = ($severity + $frequency) / 2;
+		echo "Severity: ".$severity." Frequency: ".$frequency." Percent: ".$percent;
 		echo "<script>updateArrow(".$percent.");</script>";
 		echo "<div class='content'>";
 		echo "<span class='section_header'><h1>Sickometer metrics</h1></span>";
@@ -120,7 +143,7 @@
 		echo "<p>Severity</p>";
 		echo "<div class='center'><canvas id='sev_canvas' class='c-slider' width='400' height='50'></canvas></div><br>";
 		echo "</div>";
-		echo "<script>updateFrequencySlider(".$frequency."); updateSeveritySlider(".$total_severity.");</script>";
+		echo "<script>updateFrequencySlider(".($frequency)."); updateSeveritySlider(".($severity).");</script>";
 	?>
 
 </body>

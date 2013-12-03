@@ -1,6 +1,7 @@
 var login_overlay_created = 0;
 var register_overlay_created = 0;
 var report_overlay_created = 0;
+var overlays_dirty = 0;
 
 function showLoginOverlay() {
 	console.log("Showing Login Overlay");
@@ -34,6 +35,7 @@ function showLoginOverlay() {
 	</div>\
 	').appendTo(document.body);
 	login_overlay_created = 1;
+	console.log("Login overlay created");
 }
 
 function testFunction(a) {
@@ -77,7 +79,6 @@ function showRegisterOverlay() {
 		</form>\
 	</div>\
 		').appendTo(document.body);
-	console.log("Showing error text");
 
 	register_overlay_created = 1;
 }
@@ -89,10 +90,12 @@ function showRegisterErrorText(error) {
 	}
 	if (typeof(error) === 'undefined') {
 		error = "ok";
+		return;
 	}
 	else if (error === "invalid_name") {
-		console.log("Showing error text, this means that view is created");
-		$('<span id="name_taken">Name already in use</span>').appendTo($('#register_overlay'));
+		console.log("Register error: Used username");
+		$('<tr><td colspan="2">Name already in use</td></tr>').appendTo($('#register_overlay'));
+		overlays_dirty = 1;
 	}
 }
 
@@ -102,12 +105,12 @@ function showLoginErrorText(error) {
 	}
 	if (typeof(error) === 'undefined') {
 		error = "ok";
+		return;
 	}
 	else if (error === "invalid_credentials") {
-
-	}
-	else if (error === "user_not_exist") {
-		
+		console.log("Login error: Invalid");
+		$('<tr><td colspan="2">Username or password is incorrect</td></tr>').appendTo($('#login_overlay'));
+		overlays_dirty = 1;
 	}
 }
 
@@ -155,6 +158,15 @@ function showReportOverlay() {
 }
 
 function hideOverlays() {
+	if (overlays_dirty == 1) {
+		$('#login_wrapper').remove();
+		$('#register_wrapper').remove();
+		$('#report_wrapper').remove();
+		login_overlay_created = 0;
+		register_overlay_created = 0;
+		report_overlay_created = 0;
+		overlays_dirty = 0;
+	}
 	$('#login_wrapper').css("display", "none");
 	$('#register_wrapper').css("display", "none");
 	$('#report_wrapper').css("display", "none");
