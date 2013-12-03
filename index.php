@@ -84,7 +84,6 @@
 				echo "<div class='symptoms'><b>Symptoms</b>: ". $row['symptoms'] ."</div>";
 				echo "<div class='notes'><b>Notes</b>: ". $row['note'] ."</div>";
 				echo "<p class='top_right'><b>Date</b>: ". date("jS F o", $timestamp) ."</p>";
-				echo "<p class='bottom_right'><b>Points</b>: ". $row['points'] ."</p>";
 				echo "</article>";
 			}
 		}
