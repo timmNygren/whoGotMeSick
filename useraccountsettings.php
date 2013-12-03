@@ -131,8 +131,13 @@
 			$row = $reports_array->fetch_assoc();
 			$total_severity = $total_severity + getSeverityForSymptoms($row['symptoms']);
 		}
-
-		$severity = $total_severity / $total_reports;
+		if ($total_reports == 0) {
+			$severity = 0;
+			$frequency = 0;
+		}
+		else {
+			$severity = $total_severity / $total_reports;
+		}
 		$percent = ($severity + $frequency) / 2;
 		echo "Severity: ".$severity." Frequency: ".$frequency." Percent: ".$percent;
 		echo "<script>updateArrow(".$percent.");</script>";
