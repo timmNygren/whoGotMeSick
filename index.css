@@ -10,7 +10,8 @@ body {
 
 #account_button,
 #report_button,
-#home_button {
+#home_button,
+#overview_button {
 	position:absolute;
 	text-indent:0;
 	display:inline-block;
@@ -28,38 +29,41 @@ body {
 }
 
 #account_button {
+	right:120px;
 	background: url('Images/AccountButton.png');
 }
 
 #report_button {
+	right: 235px;
 	background: url('Images/ReportButton.png');
 }
 
-#account_button {
-	right:120px;
+#overview_button {
+	right: 350px;
+	background: url('Images/OverviewButton.png');
+}
+
+#overview_button:active {
+	position: absolute;
+	top: 13%;
 }
 
 #account_button:active {
 	position:absolute;
 	top: 13%;
-	right:120px;
-}
-
-#report_button {
-	right: 235px;
 }
 
 #report_button:active {
 	position: absolute;
 	top: 13%;
-	right: 235px;
 }
 
 #overview_button:hover,
 #login_button:hover,
 #logout_button:hover,
 #account_button:hover,
-#report_button:hover {
+#report_button:hover,
+#overview_button:hover {
 	background-color:#dfdfdf;
 }
 
@@ -95,8 +99,4 @@ body {
 
 textarea {
 	display: inline;
-}
-
-#name_taken {
-
 }

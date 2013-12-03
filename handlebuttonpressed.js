@@ -62,6 +62,10 @@ function onAccountClicked() {
 	window.location.href = "useraccountsettings.php";
 }
 
+function onOverviewClicked() {
+	window.location.href = "overview.php";
+}
+
 function onLogoutClicked() {
 	var ret_val = confirm("Do you really want to logout?");
 	if (ret_val) {

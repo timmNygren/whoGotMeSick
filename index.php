@@ -44,9 +44,7 @@
 	<?php
 		if (isset($_SESSION['valid_user'])) {
 		
-			echo "<div id='overview_button'>";
-			echo "<a href='overview.php'>Overview</a>";
-			echo "</div>";
+			echo "<div id='overview_button' onClick='onOverviewClicked();'></div>";
 			// Button for the account page link
 			
 			echo "<div id='account_button' onClick='onAccountClicked();'></div>";
